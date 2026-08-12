@@ -178,13 +178,12 @@ export const EmailSelectorModal: React.FC<Props> = ({
           </button>
         </div>
 
-        {/* Footer info & Acquittal hint */}
-        <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-          <span className="text-[10px]">💡 Cliquer à l’extérieur pour fermer</span>
+        {/* Footer info & Close button */}
+        <div className="pt-2 border-t border-slate-100 flex items-center justify-end">
           <button
             type="button"
             onClick={onClose}
-            className="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-lg transition-colors"
+            className="px-4 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-lg transition-colors"
           >
             Fermer
           </button>
