@@ -1,9 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <meta name="google-site-verification" content="CxhNY1PUi1oOPN99_XkWIKXjnMgdc4ywzktW87dPb6o" />
+    <meta name="google-site-verification" content="google4c073c083c514e57" />
+    <title>INDUSTRIELTECH - Formations & Services Industriels</title>
+    <script>
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          var getter = function() { return _fetch; };
+          var setter = function(v) { _fetch = v; };
+
+          var targets = [window];
+          if (typeof window.Window === 'function' && window.Window.prototype) {
+            targets.push(window.Window.prototype);
+          }
+
+          targets.forEach(function(target) {
+            try {
+              var desc = Object.getOwnPropertyDescriptor(target, 'fetch');
+              if (!desc || desc.configurable !== false) {
+                Object.defineProperty(target, 'fetch', {
+                  get: getter,
+                  set: setter,
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (e) {}
+          });
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
