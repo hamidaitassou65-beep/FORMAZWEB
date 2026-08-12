@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { PageRoute, CompanyInfo } from '../types';
-import { Phone, Mail, MapPin, Menu, X, Settings, ArrowRight, Wrench, GraduationCap } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, Settings, ArrowRight, Wrench, GraduationCap, MessageSquare } from 'lucide-react';
+import { OFFICIAL_EMAIL, formatWhatsAppNumber } from '../utils/contact';
+import { EmailSelectorModal } from './EmailSelectorModal';
 
 interface Props {
   currentRoute: PageRoute;
@@ -18,6 +20,11 @@ export const Header: React.FC<Props> = ({
   onOpenQuoteModal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [emailModalOpen, setEmailModalOpen] = useState(false);
+
+  const phoneDisplay = companyInfo.phone || '+212 723033508';
+  const emailDisplay = companyInfo.email || OFFICIAL_EMAIL;
+  const whatsappRaw = formatWhatsAppNumber(companyInfo.whatsapp || '+212 723033508');
 
   const navItems: { label: string; route: PageRoute }[] = [
     { label: 'Accueil', route: 'home' },
@@ -40,14 +47,35 @@ export const Header: React.FC<Props> = ({
       <div className="bg-[#1a365d] text-slate-300 text-xs py-1.5 px-4 sm:px-8 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-4 flex-wrap">
-            <span className="flex items-center gap-1.5 font-medium hover:text-white transition-colors">
+            <a
+              href={`tel:${phoneDisplay.replace(/\s+/g, '')}`}
+              className="flex items-center gap-1.5 font-medium hover:text-orange-300 transition-colors"
+              title="Appeler le numéro de téléphone"
+            >
               <Phone className="w-3.5 h-3.5 text-orange-400" />
-              <span>{companyInfo.phone}</span>
-            </span>
-            <span className="hidden sm:flex items-center gap-1.5 font-medium hover:text-white transition-colors">
+              <span>{phoneDisplay}</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${whatsappRaw}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+              title="Ouvrir la discussion WhatsApp direct"
+            >
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+              <span>WhatsApp Direct</span>
+            </a>
+
+            <button
+              onClick={() => setEmailModalOpen(true)}
+              className="flex items-center gap-1.5 font-medium text-orange-200 hover:text-white transition-colors"
+              title="Envoyer un e-mail professionnel"
+            >
               <Mail className="w-3.5 h-3.5 text-orange-400" />
-              <span>{companyInfo.email}</span>
-            </span>
+              <span className="truncate max-w-[140px] sm:max-w-none">{emailDisplay}</span>
+            </button>
+
             <span className="hidden md:flex items-center gap-1.5 text-slate-300">
               <MapPin className="w-3.5 h-3.5 text-orange-400" />
               <span>{companyInfo.interventionZone}</span>
@@ -156,6 +184,17 @@ export const Header: React.FC<Props> = ({
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
+                setEmailModalOpen(true);
+              }}
+              className="w-full py-2.5 bg-slate-800 text-slate-100 hover:bg-slate-700 font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-colors"
+            >
+              <Mail className="w-4 h-4 text-orange-400" />
+              <span>E-mail : {emailDisplay}</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
                 onOpenQuoteModal();
               }}
               className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm rounded-xl shadow-md flex items-center justify-center gap-2"
@@ -166,6 +205,12 @@ export const Header: React.FC<Props> = ({
           </div>
         </div>
       )}
+
+      <EmailSelectorModal
+        isOpen={emailModalOpen}
+        onClose={() => setEmailModalOpen(false)}
+        targetEmail={emailDisplay}
+      />
     </header>
   );
 };

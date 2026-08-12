@@ -25,7 +25,7 @@ export function getStoredCompanyInfo(): CompanyInfo {
       if (parsed.phone === '[TÉLÉPHONE]' || parsed.phone === '0723033508' || !parsed.phone) {
         parsed.phone = '+212 723033508';
       }
-      if (parsed.email === '[ADRESSE E-MAIL]' || parsed.email === 'info@INDUSTRIELTECH.COM' || !parsed.email) {
+      if (parsed.email === '[ADRESSE E-MAIL]' || parsed.email?.toLowerCase().includes('example') || !parsed.email) {
         parsed.email = 'INFO@INDUSTRIELTECH.COM';
       }
       if (parsed.whatsapp === '[NUMÉRO WHATSAPP]' || parsed.whatsapp === '0723033508' || !parsed.whatsapp) {

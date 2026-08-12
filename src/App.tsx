@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { CompanySettingsModal } from './components/CompanySettingsModal';
 import { QuoteModal } from './components/QuoteModal';
 import { CourseModal } from './components/CourseModal';
+import { WhatsAppWidget } from './components/WhatsAppWidget';
 
 import { HomeView } from './views/HomeView';
 import { CoursesView } from './views/CoursesView';
@@ -140,6 +141,12 @@ export default function App() {
         course={courseModalData}
         onClose={() => setCourseModalData(null)}
         onRequestCourse={(title) => handleOpenQuoteModal('Formation', title)}
+      />
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <WhatsAppWidget
+        companyInfo={companyInfo}
+        onOpenQuoteModal={handleOpenQuoteModal}
       />
     </div>
   );

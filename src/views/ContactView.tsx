@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CompanyInfo, RequestType, UrgencyLevel, ContactFormData } from '../types';
-import { Phone, Mail, MapPin, Clock, Send, Paperclip, CheckCircle2, ShieldCheck, MessageSquare, Info, Server } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Paperclip, CheckCircle2, ShieldCheck, MessageSquare, ExternalLink } from 'lucide-react';
+import { buildWhatsAppLink, OFFICIAL_EMAIL, WHATSAPP_NUMBER_FORMATTED, formatWhatsAppNumber } from '../utils/contact';
+import { EmailSelectorModal } from '../components/EmailSelectorModal';
 
 interface Props {
   companyInfo: CompanyInfo;
@@ -28,6 +30,7 @@ export const ContactView: React.FC<Props> = ({
   const [fileName, setFileName] = useState<string | undefined>(undefined);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [emailModalOpen, setEmailModalOpen] = useState(false);
 
   useEffect(() => {
     if (initialSubject) {
@@ -46,6 +49,15 @@ export const ContactView: React.FC<Props> = ({
     }
   };
 
+  const handleSendWhatsApp = () => {
+    const link = buildWhatsAppLink(formData, companyInfo.whatsapp || '+212 723033508');
+    window.open(link, '_blank');
+  };
+
+  const handleOpenEmailOptions = () => {
+    setEmailModalOpen(true);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.dataConsent) return;
@@ -54,307 +66,400 @@ export const ContactView: React.FC<Props> = ({
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 700);
+    }, 600);
   };
 
+  const rawWhatsapp = formatWhatsAppNumber(companyInfo.whatsapp || '+212 723033508');
+  const displayPhone = companyInfo.phone || '+212 723033508';
+  const displayEmail = companyInfo.email || OFFICIAL_EMAIL;
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 space-y-12">
-      {/* Header */}
-      <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
-          <MessageSquare className="w-3.5 h-3.5" />
-          <span>Contact Direct & Demande de Proposition</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Contactez nos Services Techniques
-        </h1>
-        <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Pour toute demande de devis de formation, de diagnostic sur site, de programmation PLC ou de réparation de carte électronique, renseignez le formulaire ci-dessous ou contactez-nous directement.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Coordonnées de contact */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
-            <h2 className="text-xl font-bold text-[#1a365d]">Coordonnées de l’Entreprise</h2>
-
-            <ul className="space-y-4 text-xs text-slate-700">
-              <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
-                <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center shrink-0 font-bold">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block uppercase">Téléphone</span>
-                  <span className="font-bold text-[#1a365d] text-sm">{companyInfo.phone}</span>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold">
-                  <MessageSquare className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block uppercase">WhatsApp Direct</span>
-                  <span className="font-bold text-[#1a365d] text-sm">{companyInfo.whatsapp}</span>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
-                <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center shrink-0 font-bold">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block uppercase">Adresse E-mail</span>
-                  <span className="font-bold text-[#1a365d] text-sm">{companyInfo.email}</span>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
-                <div className="w-9 h-9 rounded-xl bg-slate-100 text-[#1a365d] flex items-center justify-center shrink-0 font-bold">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block uppercase">Adresse des locaux</span>
-                  <span className="font-bold text-[#1a365d] text-sm">{companyInfo.address}</span>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
-                <div className="w-9 h-9 rounded-xl bg-slate-100 text-[#1a365d] flex items-center justify-center shrink-0 font-bold">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block uppercase">Zone d’intervention</span>
-                  <span className="font-bold text-[#1a365d] text-sm">{companyInfo.interventionZone}</span>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
-                <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 font-bold">
-                  <Clock className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block uppercase">Horaires d’ouverture</span>
-                  <span className="font-bold text-[#1a365d] text-sm">{companyInfo.openingHours}</span>
-                </div>
-              </li>
-            </ul>
+    <>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 space-y-12">
+        {/* Header */}
+        <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span>Contact Direct WhatsApp & Email Officiel</span>
           </div>
-
-          {/* Technical connection note */}
-          <div className="p-5 bg-[#1a365d] text-slate-300 rounded-3xl border border-slate-800 space-y-2 text-xs">
-            <div className="font-bold text-white flex items-center gap-2">
-              <Server className="w-4 h-4 text-orange-400" /> Note d’intégration backend
-            </div>
-            <p className="leading-relaxed">
-              Le formulaire ci-contre est entièrement structuré et validé côté client. Pour relier l’envoi directement à votre serveur d’e-mails ou à votre logiciel CRM, configurez votre route d’API backend (Node/Express).
-            </p>
-          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Contactez nos Services Techniques
+          </h1>
+          <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
+            Pour toute demande de devis de formation, de diagnostic sur site, de programmation PLC ou de réparation de carte électronique, renseignez le formulaire ci-dessous ou contactez-nous directement via WhatsApp au <strong className="text-emerald-300">{displayPhone}</strong> ou e-mail à{' '}
+            <button
+              onClick={handleOpenEmailOptions}
+              className="text-orange-300 hover:text-orange-200 font-bold underline cursor-pointer"
+            >
+              {displayEmail}
+            </button>
+            .
+          </p>
         </div>
 
-        {/* Right Column: Formulaire */}
-        <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xs">
-          {isSubmitted ? (
-            <div className="py-12 text-center space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-10 h-10" />
-              </div>
-              <h3 className="text-2xl font-bold text-[#1a365d]">Demande transmise avec succès</h3>
-              <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                Merci {formData.fullName}. Votre dossier a été pris en compte pour <strong className="text-[#1a365d]">{formData.relatedSubject || formData.requestType}</strong>.
-              </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Coordonnées de contact */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
+              <h2 className="text-xl font-bold text-[#1a365d]">Coordonnées Directes</h2>
 
-              <button
-                onClick={() => setIsSubmitted(false)}
-                className="mt-4 px-6 py-2.5 bg-[#1a365d] hover:bg-[#152c4d] text-white font-bold text-xs rounded-lg"
-              >
-                Envoyer une autre demande
-              </button>
+              <ul className="space-y-4 text-xs text-slate-700">
+                <li>
+                  <a
+                    href={`tel:${displayPhone.replace(/\s+/g, '')}`}
+                    className="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-2xl transition-colors group"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center shrink-0 font-bold">
+                        <Phone className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-semibold text-slate-400 block uppercase">Téléphone fixe / mobile</span>
+                        <span className="font-bold text-[#1a365d] text-sm group-hover:text-orange-600 transition-colors">
+                          {displayPhone}
+                        </span>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-orange-500" />
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href={`https://wa.me/${rawWhatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3.5 bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 rounded-2xl transition-colors group"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 font-bold">
+                        <MessageSquare className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-semibold text-emerald-800 block uppercase">WhatsApp Direct (7j/7)</span>
+                        <span className="font-bold text-emerald-950 text-sm group-hover:underline">
+                          {displayPhone}
+                        </span>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-emerald-600" />
+                  </a>
+                </li>
+
+                <li>
+                  <button
+                    type="button"
+                    onClick={handleOpenEmailOptions}
+                    className="w-full text-left flex items-center justify-between p-3.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-2xl transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center shrink-0 font-bold">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-semibold text-slate-400 block uppercase">Adresse E-mail Professionnelle</span>
+                        <span className="font-bold text-[#1a365d] text-sm group-hover:text-orange-600 transition-colors">
+                          {displayEmail}
+                        </span>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-orange-500" />
+                  </button>
+                </li>
+
+                <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 text-[#1a365d] flex items-center justify-center shrink-0 font-bold">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-slate-400 block uppercase">Localisation</span>
+                    <span className="font-bold text-[#1a365d] text-sm">{companyInfo.address}</span>
+                  </div>
+                </li>
+
+                <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 text-[#1a365d] flex items-center justify-center shrink-0 font-bold">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-slate-400 block uppercase">Zone d’intervention</span>
+                    <span className="font-bold text-[#1a365d] text-sm">{companyInfo.interventionZone}</span>
+                  </div>
+                </li>
+
+                <li className="flex items-start gap-3.5 p-3.5 bg-slate-50 border border-slate-100 rounded-2xl">
+                  <div className="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 font-bold">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-slate-400 block uppercase">Horaires d’ouverture</span>
+                    <span className="font-bold text-[#1a365d] text-sm">{companyInfo.openingHours}</span>
+                  </div>
+                </li>
+              </ul>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <h2 className="text-xl font-bold text-[#1a365d] border-b border-slate-100 pb-3">
-                Formulaire de demande d’intervention ou de formation
-              </h2>
+          </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Nom et prénom <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    placeholder="ex: Marc Bernard"
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                  />
+          {/* Right Column: Formulaire */}
+          <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xs">
+            {isSubmitted ? (
+              <div className="py-10 text-center space-y-5">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-10 h-10" />
                 </div>
+                <h3 className="text-2xl font-bold text-[#1a365d]">Demande formulée avec succès</h3>
+                <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                  Merci {formData.fullName}. Votre dossier pour <strong className="text-[#1a365d]">{formData.relatedSubject || formData.requestType}</strong> est prêt.
+                </p>
 
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Nom de l’entreprise <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.companyName}
-                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                    placeholder="ex: AgroProd S.A."
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Téléphone direct <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="ex: 06 12 34 56 78"
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Adresse e-mail <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="ex: m.bernard@agroprod.fr"
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Type de demande <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    value={formData.requestType}
-                    onChange={(e) => setFormData({ ...formData, requestType: e.target.value as RequestType })}
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none bg-white"
-                  >
-                    <option value="Formation">Formation</option>
-                    <option value="Réparation d’une carte électronique">Réparation d’une carte électronique</option>
-                    <option value="Diagnostic ou dépannage">Diagnostic ou dépannage</option>
-                    <option value="Programmation d’un automate">Programmation d’un automate</option>
-                    <option value="Mise en service">Mise en service</option>
-                    <option value="Demande de devis">Demande de devis</option>
-                    <option value="Autre demande">Autre demande</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Niveau d’urgence
-                  </label>
-                  <select
-                    value={formData.urgency}
-                    onChange={(e) => setFormData({ ...formData, urgency: e.target.value as UrgencyLevel })}
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none bg-white"
-                  >
-                    <option value="Normal">Normal</option>
-                    <option value="Prioritaire">Prioritaire</option>
-                    <option value="Urgence critique (Arrêt de production)">
-                      Urgence critique (Arrêt de ligne)
-                    </option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Formation ou service concerné (Intitulé / Référence)
-                </label>
-                <input
-                  type="text"
-                  value={formData.relatedSubject}
-                  onChange={(e) => setFormData({ ...formData, relatedSubject: e.target.value })}
-                  placeholder="ex: Automatisme S7-1200 / Carte variateur Altivar 630..."
-                  className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Description du besoin <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Détaillez vos équipements, les références précises ou les objectifs visés..."
-                  className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                />
-              </div>
-
-              {/* Document upload simulation */}
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Ajout facultatif de photographies ou de documents
-                </label>
-                <div className="flex items-center gap-3">
-                  <label className="cursor-pointer px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 flex items-center gap-2 transition-colors">
-                    <Paperclip className="w-4 h-4 text-slate-600" />
-                    <span>Choisir un fichier...</span>
-                    <input type="file" onChange={handleFileChange} className="hidden" accept="image/*,.pdf,.doc,.docx" />
-                  </label>
-                  {fileName ? (
-                    <span className="text-xs text-emerald-700 font-medium truncate max-w-xs">
-                      ✓ {fileName}
-                    </span>
-                  ) : (
-                    <span className="text-xs text-slate-600">Formats : PDF, JPG, PNG, DOC</span>
-                  )}
-                </div>
-              </div>
-
-              {/* RGPD Consent */}
-              <div className="pt-2">
-                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-600">
-                  <input
-                    type="checkbox"
-                    required
-                    checked={formData.dataConsent}
-                    onChange={(e) => setFormData({ ...formData, dataConsent: e.target.checked })}
-                    className="mt-0.5 rounded text-orange-500 focus:ring-orange-500"
-                  />
-                  <span>
-                    J’autorise l’entreprise à traiter mes données uniquement dans le cadre du traitement de ma demande. <ShieldCheck className="w-3.5 h-3.5 inline text-slate-600 ml-1" />
+                {/* Direct links */}
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl max-w-md mx-auto space-y-3 text-left">
+                  <span className="block text-xs font-bold text-[#1a365d] uppercase tracking-wider text-center">
+                    Envoyer directement via votre canal préféré :
                   </span>
-                </label>
-              </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting || !formData.dataConsent}
-                className="w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm rounded-lg shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                {isSubmitting ? (
-                  <span>Transmission...</span>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" /> Envoyer la demande
-                  </>
-                )}
-              </button>
-            </form>
-          )}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={handleSendWhatsApp}
+                      className="py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>WhatsApp ({displayPhone})</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleOpenEmailOptions}
+                      className="py-3 px-4 bg-[#1a365d] hover:bg-[#152c4d] text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>E-mail ({displayEmail})</span>
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="mt-4 px-6 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs rounded-lg"
+                >
+                  Remplir une autre demande
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <h2 className="text-xl font-bold text-[#1a365d] border-b border-slate-100 pb-3">
+                  Formulaire de demande de devis ou d’intervention
+                </h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Nom et prénom <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      placeholder="ex: Marc Bernard"
+                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Nom de l’entreprise <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      placeholder="ex: AgroProd S.A."
+                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Téléphone direct <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="ex: 06 12 34 56 78"
+                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Adresse e-mail <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="ex: m.bernard@agroprod.fr"
+                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Type de demande <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={formData.requestType}
+                      onChange={(e) => setFormData({ ...formData, requestType: e.target.value as RequestType })}
+                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none bg-white"
+                    >
+                      <option value="Formation">Formation</option>
+                      <option value="Réparation d’une carte électronique">Réparation d’une carte électronique</option>
+                      <option value="Diagnostic ou dépannage">Diagnostic ou dépannage</option>
+                      <option value="Programmation d’un automate">Programmation d’un automate</option>
+                      <option value="Mise en service">Mise en service</option>
+                      <option value="Demande de devis">Demande de devis</option>
+                      <option value="Autre demande">Autre demande</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Niveau d’urgence
+                    </label>
+                    <select
+                      value={formData.urgency}
+                      onChange={(e) => setFormData({ ...formData, urgency: e.target.value as UrgencyLevel })}
+                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none bg-white"
+                    >
+                      <option value="Normal">Normal</option>
+                      <option value="Prioritaire">Prioritaire</option>
+                      <option value="Urgence critique (Arrêt de production)">
+                        🔴 Urgence critique (Arrêt de ligne)
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Formation ou service concerné (Intitulé / Référence)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.relatedSubject}
+                    onChange={(e) => setFormData({ ...formData, relatedSubject: e.target.value })}
+                    placeholder="ex: Automatisme S7-1200 / Carte variateur Altivar 630..."
+                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Description du besoin <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={formData.description}
+                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    placeholder="Détaillez vos équipements, les références précises ou les objectifs visés..."
+                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                  />
+                </div>
+
+                {/* Document upload simulation */}
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Ajout facultatif de photographies ou de documents
+                  </label>
+                  <div className="flex items-center gap-3">
+                    <label className="cursor-pointer px-4 py-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 flex items-center gap-2 transition-colors">
+                      <Paperclip className="w-4 h-4 text-slate-600" />
+                      <span>Choisir un fichier...</span>
+                      <input type="file" onChange={handleFileChange} className="hidden" accept="image/*,.pdf,.doc,.docx" />
+                    </label>
+                    {fileName ? (
+                      <span className="text-xs text-emerald-700 font-medium truncate max-w-xs">
+                        ✓ {fileName}
+                      </span>
+                    ) : (
+                      <span className="text-xs text-slate-600">Formats : PDF, JPG, PNG, DOC</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* RGPD Consent */}
+                <div className="pt-1">
+                  <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-600">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={formData.dataConsent}
+                      onChange={(e) => setFormData({ ...formData, dataConsent: e.target.checked })}
+                      className="mt-0.5 rounded text-orange-500 focus:ring-orange-500"
+                    />
+                    <span>
+                      J’autorise l’entreprise à traiter mes données uniquement dans le cadre de ma demande. <ShieldCheck className="w-3.5 h-3.5 inline text-slate-600 ml-1" />
+                    </span>
+                  </label>
+                </div>
+
+                {/* Direct Buttons Bar */}
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                  <span className="block text-xs font-bold text-[#1a365d] uppercase tracking-wider">
+                    Envoyer ma demande directement :
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <button
+                      type="button"
+                      onClick={handleSendWhatsApp}
+                      className="py-3 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-sm flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>WhatsApp ({displayPhone})</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleOpenEmailOptions}
+                      className="py-3 px-3 bg-[#1a365d] hover:bg-[#152c4d] text-white font-bold text-xs rounded-xl shadow-sm flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>E-mail ({displayEmail})</span>
+                    </button>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || !formData.dataConsent}
+                      className="py-3 px-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-xl shadow-sm flex items-center justify-center gap-2 disabled:opacity-50 transition-colors"
+                    >
+                      <Send className="w-4 h-4" />
+                      <span>Valider</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      <EmailSelectorModal
+        isOpen={emailModalOpen}
+        onClose={() => setEmailModalOpen(false)}
+        formData={formData}
+        targetEmail={displayEmail}
+      />
+    </>
   );
 };
+
+
