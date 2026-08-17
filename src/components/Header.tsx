@@ -73,6 +73,7 @@ export const Header: React.FC<Props> = ({
         {/* Brand Logo & Name */}
         <Link
           to="/"
+          aria-label="INDUSTRIELTECH - Automatisme, maintenance et formations industrielles"
           className="flex items-center gap-3 text-left group"
         >
           <div className="w-10 h-10 rounded-xl bg-[#1a365d] text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:bg-[#152c4d] transition-colors">

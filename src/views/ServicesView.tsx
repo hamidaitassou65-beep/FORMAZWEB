@@ -1,5 +1,6 @@
 import React from 'react';
 import { TECHNICAL_SERVICES } from '../data/services';
+import { TechService } from '../types';
 import { Wrench, Cpu, Bot, Settings, CheckCircle2, ArrowRight, ShieldCheck, Zap, PhoneCall } from 'lucide-react';
 import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
 import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
@@ -8,6 +9,21 @@ import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603
 
 interface Props {
   onRequestService: (serviceTitle: string) => void;
+}
+
+function getServiceImageAlt(service: TechService): string {
+  switch (service.id) {
+    case 'reparation':
+      return "Diagnostic et réparation d'une carte électronique industrielle au composant";
+    case 'automatisme':
+      return "Programmation et configuration d'un automate industriel pour équipement de production";
+    case 'diagnostic':
+      return "Technicien effectuant un diagnostic technique et dépannage sur un équipement industriel";
+    case 'installation':
+      return "Installation, câblage et mise en service d'armoires d'automatisme et de puissance";
+    default:
+      return "Prestation technique et maintenance d'équipements industriels";
+  }
 }
 
 export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
@@ -48,7 +64,7 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
               <div className="relative h-48 sm:h-60 w-full overflow-hidden bg-slate-900">
                 <img
                   src={serviceImage}
-                  alt={service.title}
+                  alt={getServiceImageAlt(service)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
                   referrerPolicy="no-referrer"
                 />

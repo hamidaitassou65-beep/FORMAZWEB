@@ -12,6 +12,37 @@ interface Props {
   onRequestCourse: (courseTitle: string) => void;
 }
 
+function getCourseImageAlt(course: Course): string {
+  switch (course.id) {
+    case 'auto-01':
+      return "Formation pratique en automatisme industriel sur automate programmable et banc d'essai";
+    case 'auto-02':
+      return "Programmation d'un automate Siemens avec TIA Portal sur banc d'entraînement";
+    case 'auto-03':
+      return "Configuration et test d'une interface tactile opérateur IHM pour automate industriel";
+    case 'auto-04':
+      return "Supervision industrielle et contrôle de procédé sur poste opérateur";
+    case 'auto-05':
+      return "Configuration et diagnostic de réseaux industriels PROFINET et Ethernet";
+    case 'auto-06':
+      return "Diagnostic d'un système d'automatisation industrielle sur banc de test";
+    case 'var-01':
+      return "Formation pratique sur un variateur de vitesse industriel et moteur électrique";
+    case 'var-02':
+      return "Variateur de vitesse utilisé pour l'optimisation énergétique d'une installation industrielle";
+    case 'ene-01':
+      return "Formation pratique en électricité industrielle sur armoire de commande";
+    case 'ene-02':
+      return "Panneaux solaires photovoltaïques et onduleurs pour formation technique";
+    case 'maint-01':
+      return "Intervention de maintenance et diagnostic sur une ligne de production automatisée";
+    case 'maint-02':
+      return "Contrôle et diagnostic d'une carte électronique industrielle au banc de test";
+    default:
+      return "Formation technique et manipulation d'équipements industriels";
+  }
+}
+
 export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }) => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryId | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -126,7 +157,7 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
                   <div className="relative h-36 w-full overflow-hidden bg-slate-900">
                     <img
                       src={categoryImage}
-                      alt={course.title}
+                      alt={getCourseImageAlt(course)}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                       referrerPolicy="no-referrer"
                     />

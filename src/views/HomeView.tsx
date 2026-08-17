@@ -35,7 +35,7 @@ export const HomeView: React.FC<Props> = ({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-xs font-semibold">
                 <Zap className="w-3.5 h-3.5 text-orange-400" />
-                <span>Automatisme, Maintenance & Formation Technique au Maroc</span>
+                <span>Automatisme, Maintenance &amp; Formation Technique au Maroc</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
@@ -74,7 +74,7 @@ export const HomeView: React.FC<Props> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
-                  <span>Diagnostic & Dépannage multi-marques</span>
+                  <span>Diagnostic &amp; Dépannage multi-marques</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
@@ -88,7 +88,7 @@ export const HomeView: React.FC<Props> = ({
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl group">
                 <img
                   src={heroBannerImg}
-                  alt="Automatisme industriel, maintenance et variateurs de vitesse au Maroc"
+                  alt="Armoire d'automatisme industriel et variateurs de vitesse pour le contrôle d'équipements"
                   className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -98,7 +98,7 @@ export const HomeView: React.FC<Props> = ({
                 <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#1a365d]/95 backdrop-blur-md rounded-xl border border-slate-600/60 text-xs text-slate-200 space-y-1">
                   <div className="font-bold text-white flex items-center gap-2">
                     <Activity className="w-4 h-4 text-orange-400 animate-pulse" />
-                    <span>Automatisme Industriel & Maintenance au Maroc</span>
+                    <span>Automatisme Industriel &amp; Maintenance au Maroc</span>
                   </div>
                   <p className="text-[11px] text-slate-300">
                     Systèmes API Siemens, Schneider, variateurs de vitesse, électricité industrielle et cartes électroniques.
@@ -127,7 +127,7 @@ export const HomeView: React.FC<Props> = ({
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
               <img
                 src={industrialTrainingImg}
-                alt="Formation automatisme industriel et maintenance au Maroc"
+                alt="Formation pratique en automatisme industriel sur automate programmable"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 referrerPolicy="no-referrer"
               />
@@ -141,7 +141,7 @@ export const HomeView: React.FC<Props> = ({
                 <div className="w-8 h-8 rounded-lg bg-orange-500/90 text-white flex items-center justify-center font-bold shrink-0">
                   <GraduationCap className="w-4 h-4" />
                 </div>
-                <h3 className="text-lg font-bold">Formation Automatisme, Électricité & Énergie</h3>
+                <h3 className="text-lg font-bold">Formation Automatisme, Électricité &amp; Énergie</h3>
               </div>
             </div>
 
@@ -183,21 +183,21 @@ export const HomeView: React.FC<Props> = ({
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
               <img
                 src={electronicRepairImg}
-                alt="Services industriels, maintenance et réparation électronique au Maroc"
+                alt="Diagnostic et réparation d'une carte électronique industrielle"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
               <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 bg-[#1a365d] text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm border border-slate-500/30">
-                  Pôle 02 — Services Industriels & Maintenance
+                  Pôle 02 — Services Industriels &amp; Maintenance
                 </span>
               </div>
               <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-[#1a365d]/90 text-white flex items-center justify-center font-bold shrink-0 border border-slate-500/30">
                   <Wrench className="w-4 h-4" />
                 </div>
-                <h3 className="text-lg font-bold">Maintenance Industrielle & Dépannage</h3>
+                <h3 className="text-lg font-bold">Maintenance Industrielle &amp; Dépannage</h3>
               </div>
             </div>
 
@@ -305,7 +305,7 @@ export const HomeView: React.FC<Props> = ({
               <div className="w-10 h-10 rounded-lg bg-slate-100 text-[#1a365d] flex items-center justify-center font-bold">
                 <Zap className="w-5 h-5 text-[#1a365d]" />
               </div>
-              <h3 className="font-bold text-[#1a365d] text-base">Électricité & Énergie solaire</h3>
+              <h3 className="font-bold text-[#1a365d] text-base">Électricité &amp; Énergie solaire</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
                 Formation électricité industrielle, dimensionnement d'installations photovoltaïques, efficacité énergétique et qualité du réseau.
               </p>
@@ -351,7 +351,7 @@ export const HomeView: React.FC<Props> = ({
           <div className="max-w-2xl mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-orange-400">Services Industriels au Maroc</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1 text-white">
-              Prestations techniques en automatisme & maintenance
+              Prestations techniques en automatisme &amp; maintenance
             </h2>
             <p className="text-slate-300 text-sm mt-2">
               Un soutien réactif pour maintenir, réparer et optimiser vos équipements industriels au Maroc.
@@ -451,7 +451,7 @@ export const HomeView: React.FC<Props> = ({
           <div className="lg:col-span-6">
             <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
               <h3 className="font-bold text-[#1a365d] text-lg flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-orange-500" /> Technologies & Marques Maîtrisées
+                <Cpu className="w-5 h-5 text-orange-500" /> Technologies &amp; Marques Maîtrisées
               </h3>
               <p className="text-xs text-slate-600">
                 Interventions et formations compatibles avec les principaux standards de l’industrie au Maroc :
@@ -512,7 +512,7 @@ export const HomeView: React.FC<Props> = ({
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 items-center justify-center pt-2">
             {/* OCP */}
             <div className="p-5 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 rounded-2xl transition-all duration-200 flex flex-col items-center justify-center h-32 group hover:shadow-sm">
-              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform">
+              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform" aria-label="Logo Groupe OCP">
                 <OcpLogo className="h-12 max-w-full" />
               </div>
               <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">
@@ -522,7 +522,7 @@ export const HomeView: React.FC<Props> = ({
 
             {/* DISLOG GROUP */}
             <div className="p-5 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 rounded-2xl transition-all duration-200 flex flex-col items-center justify-center h-32 group hover:shadow-sm">
-              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform">
+              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform" aria-label="Logo Dislog Group">
                 <DislogLogo className="h-11 max-w-full" />
               </div>
               <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">
@@ -532,7 +532,7 @@ export const HomeView: React.FC<Props> = ({
 
             {/* AZURA */}
             <div className="p-5 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 rounded-2xl transition-all duration-200 flex flex-col items-center justify-center h-32 group hover:shadow-sm">
-              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform">
+              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform" aria-label="Logo Azura Group">
                 <AzuraLogo className="h-14 max-w-full" />
               </div>
               <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">
@@ -542,7 +542,7 @@ export const HomeView: React.FC<Props> = ({
 
             {/* UM6P */}
             <div className="p-5 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 rounded-2xl transition-all duration-200 flex flex-col items-center justify-center h-32 group hover:shadow-sm">
-              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform">
+              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform" aria-label="Logo Université Mohammed VI Polytechnique (UM6P)">
                 <Um6pLogo className="h-10 max-w-full" />
               </div>
               <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">
@@ -552,7 +552,7 @@ export const HomeView: React.FC<Props> = ({
 
             {/* LICORNE GROUP */}
             <div className="p-5 bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 rounded-2xl transition-all duration-200 flex flex-col items-center justify-center h-32 group hover:shadow-sm">
-              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform">
+              <div className="w-full flex justify-center items-center h-16 group-hover:scale-105 transition-transform" aria-label="Logo Licorne Consulting-Training">
                 <LicorneLogo className="h-11 max-w-full" />
               </div>
               <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">
@@ -568,7 +568,7 @@ export const HomeView: React.FC<Props> = ({
 
 function BotIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
       <rect x="3" y="11" width="18" height="10" rx="2" />
       <circle cx="12" cy="5" r="2" />
       <path d="M12 7v4" />
