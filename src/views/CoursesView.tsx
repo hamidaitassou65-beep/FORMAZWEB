@@ -40,13 +40,13 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
       <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>Catalogue Officiel de Formation Technique</span>
+          <span>Formations Professionnelles en Automatisme, Maintenance &amp; Énergie au Maroc</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Catalogue des Formations Industrielles
         </h1>
         <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Découvrez nos modules de formation théoriques et pratiques dispensés par des spécialistes chevronnés du terrain. Formations éligibles aux plans de développement des compétences inter-entreprises et sur mesure.
+          Découvrez nos programmes de formation professionnelle industrielle au Maroc : formation automatisme industriel, programmation PLC, Siemens TIA Portal, variateurs de vitesse, électricité industrielle, photovoltaïque et énergie solaire.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Rechercher une formation (ex: TIA Portal, Siemens, Altivar, Dépannage...)"
+              placeholder="Rechercher une formation (ex: TIA Portal, Siemens, PLC, Variateur, Électricité, Solaire...)"
               className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
             />
           </div>
@@ -170,7 +170,7 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
                     onClick={() => onSelectCourse(course)}
                     className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#1a365d] hover:bg-slate-200/60 rounded-lg transition-colors"
                   >
-                    Détails & Programme
+                    Détails &amp; Programme
                   </button>
 
                   <button

@@ -8,6 +8,7 @@ import { CompanySettingsModal } from './components/CompanySettingsModal';
 import { QuoteModal } from './components/QuoteModal';
 import { CourseModal } from './components/CourseModal';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
+import { PAGE_SEO_DATA, TOPIC_SEO_DATA, updateDocumentMetadata } from './utils/seo';
 
 import { HomeView } from './views/HomeView';
 import { CoursesView } from './views/CoursesView';
@@ -30,9 +31,9 @@ function ScrollToTop() {
 }
 
 /**
- * Manages SEO Canonical URL tag & migration of legacy hash URLs
+ * Manages SEO Titles, Meta Descriptions, Canonical URLs & migration of legacy hash URLs
  */
-function SeoAndHashMigration() {
+function SeoAndHashMigration({ activeCourse }: { activeCourse: Course | null }) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -59,18 +60,15 @@ function SeoAndHashMigration() {
   }, [navigate]);
 
   useEffect(() => {
-    // 2. Maintain canonical link tag with clean URL without hash
-    const cleanPath = location.pathname === '/' ? '' : location.pathname;
-    const canonicalUrl = `https://industrieltech.com${cleanPath}`;
-
-    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
+    // 2. Manage Dynamic SEO Title and Meta Description per Page & Active Modal
+    if (activeCourse && TOPIC_SEO_DATA[activeCourse.id]) {
+      const topicSeo = TOPIC_SEO_DATA[activeCourse.id];
+      updateDocumentMetadata(topicSeo.title, topicSeo.description, location.pathname);
+    } else {
+      const currentSeo = PAGE_SEO_DATA[location.pathname] || PAGE_SEO_DATA['/'];
+      updateDocumentMetadata(currentSeo.title, currentSeo.description, location.pathname);
     }
-    canonicalLink.setAttribute('href', canonicalUrl);
-  }, [location.pathname]);
+  }, [location.pathname, activeCourse]);
 
   return null;
 }
@@ -95,7 +93,7 @@ function MainLayout() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       <ScrollToTop />
-      <SeoAndHashMigration />
+      <SeoAndHashMigration activeCourse={courseModalData} />
 
       {/* Navigation Header */}
       <Header

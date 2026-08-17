@@ -35,15 +35,15 @@ export const HomeView: React.FC<Props> = ({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 border border-orange-400/30 text-orange-300 text-xs font-semibold">
                 <Zap className="w-3.5 h-3.5 text-orange-400" />
-                <span>Expertise Technique & Pédagogie Industrielle</span>
+                <span>Automatisme, Maintenance & Formation Technique au Maroc</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                Formations et solutions techniques pour l’industrie
+                Formations et solutions techniques pour l’industrie au Maroc
               </h1>
 
               <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
-                Développez les compétences de vos équipes et améliorez la fiabilité de vos installations grâce à nos formations, nos services d’automatisation et nos solutions de maintenance industrielle.
+                INDUSTRIELTECH accompagne les entreprises avec des programmes de formation industrielle, des prestations d’automatisme industriel, de maintenance industrielle, d’électricité industrielle et d’énergie solaire au Maroc.
               </p>
 
               {/* Hero Action Buttons */}
@@ -74,11 +74,11 @@ export const HomeView: React.FC<Props> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
-                  <span>Diagnostic multi-marques</span>
+                  <span>Diagnostic & Dépannage multi-marques</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-orange-400 shrink-0" />
-                  <span>Interventions sur site</span>
+                  <span>Interventions sur site au Maroc</span>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ export const HomeView: React.FC<Props> = ({
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl group">
                 <img
                   src={heroBannerImg}
-                  alt="Installation d'automatisme et variateurs de vitesse industriels"
+                  alt="Automatisme industriel, maintenance et variateurs de vitesse au Maroc"
                   className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -98,10 +98,10 @@ export const HomeView: React.FC<Props> = ({
                 <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#1a365d]/95 backdrop-blur-md rounded-xl border border-slate-600/60 text-xs text-slate-200 space-y-1">
                   <div className="font-bold text-white flex items-center gap-2">
                     <Activity className="w-4 h-4 text-orange-400 animate-pulse" />
-                    <span>Infrastructures & Automatismes de Contrôle</span>
+                    <span>Automatisme Industriel & Maintenance au Maroc</span>
                   </div>
                   <p className="text-[11px] text-slate-300">
-                    Systèmes API Siemens, Schneider, Rockwell, variateurs de vitesse et cartes électroniques.
+                    Systèmes API Siemens, Schneider, variateurs de vitesse, électricité industrielle et cartes électroniques.
                   </p>
                 </div>
               </div>
@@ -114,10 +114,10 @@ export const HomeView: React.FC<Props> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a365d] tracking-tight">
-            Deux pôles d’expertise au service de votre productivité
+            Deux pôles d’expertise au service de votre productivité au Maroc
           </h2>
           <p className="text-slate-600 text-sm mt-2">
-            Une offre complémentaire combinant transfert de compétences pratiques et support technique d’urgence.
+            Une offre globale associant formation professionnelle industrielle et services industriels de maintenance et réparation.
           </p>
         </div>
 
@@ -127,41 +127,41 @@ export const HomeView: React.FC<Props> = ({
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
               <img
                 src={industrialTrainingImg}
-                alt="Pôle 1 - Formations Industrielles"
+                alt="Formation automatisme industriel et maintenance au Maroc"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
               <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 bg-orange-500 text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm">
-                  Pôle 01 — Formation
+                  Pôle 01 — Formation Industrielle
                 </span>
               </div>
               <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-orange-500/90 text-white flex items-center justify-center font-bold shrink-0">
                   <GraduationCap className="w-4 h-4" />
                 </div>
-                <h3 className="text-lg font-bold">Formations Industrielles & Automatisme</h3>
+                <h3 className="text-lg font-bold">Formation Automatisme, Électricité & Énergie</h3>
               </div>
             </div>
 
             <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col justify-between">
               <div className="space-y-4">
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Des formations théoriques et pratiques en automatisme industriel, variateurs de vitesse, électrotechnique, énergie et maintenance.
+                  Des programmes de formation en automatisme industriel, programmation automate PLC, Siemens TIA Portal, variateurs de vitesse, électricité industrielle et énergie solaire au Maroc.
                 </p>
                 <ul className="space-y-2 text-xs text-slate-700 pt-2">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" />
-                    <span>Programmes modulaires adaptés à vos équipements</span>
+                    <span>Programmes pratiques adaptés à vos équipements d'usine</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" />
-                    <span>Formations en nos locaux ou sur votre site client</span>
+                    <span>Formations sur site client au Maroc ou en centre technique</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-500 shrink-0" />
-                    <span>Attestations de compétences et évaluation continue</span>
+                    <span>Attestations professionnelles et évaluation continue</span>
                   </li>
                 </ul>
               </div>
@@ -171,7 +171,7 @@ export const HomeView: React.FC<Props> = ({
                   to="/formations"
                   className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 active:scale-98"
                 >
-                  <span>Voir le catalogue</span>
+                  <span>Voir le catalogue de formations</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -183,41 +183,41 @@ export const HomeView: React.FC<Props> = ({
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
               <img
                 src={electronicRepairImg}
-                alt="Pôle 2 - Services Techniques"
+                alt="Services industriels, maintenance et réparation électronique au Maroc"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
               <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 bg-[#1a365d] text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm border border-slate-500/30">
-                  Pôle 02 — Services & Dépannage
+                  Pôle 02 — Services Industriels & Maintenance
                 </span>
               </div>
               <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-[#1a365d]/90 text-white flex items-center justify-center font-bold shrink-0 border border-slate-500/30">
                   <Wrench className="w-4 h-4" />
                 </div>
-                <h3 className="text-lg font-bold">Services & Interventions Techniques</h3>
+                <h3 className="text-lg font-bold">Maintenance Industrielle & Dépannage</h3>
               </div>
             </div>
 
             <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col justify-between">
               <div className="space-y-4">
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Des solutions de diagnostic, de réparation électronique, de programmation d’automates et de mise en service des équipements industriels.
+                  Services industriels complets : diagnostic sur site, dépannage électrique, programmation PLC, maintenance de variateurs de vitesse et réparation de cartes électroniques industrielles au Maroc.
                 </p>
                 <ul className="space-y-2 text-xs text-slate-700 pt-2">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#1a365d] shrink-0" />
-                    <span>Réparation de cartes électroniques au composant</span>
+                    <span>Réparation de cartes électroniques industrielles au composant</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#1a365d] shrink-0" />
-                    <span>Programmation, modification et sauvegarde PLC</span>
+                    <span>Programmation, modification et sauvegarde d'automates PLC</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#1a365d] shrink-0" />
-                    <span>Interventions de dépannage d’urgence sur site</span>
+                    <span>Interventions de dépannage et maintenance sur site au Maroc</span>
                   </li>
                 </ul>
               </div>
@@ -227,7 +227,7 @@ export const HomeView: React.FC<Props> = ({
                   to="/services"
                   className="w-full py-3 bg-[#1a365d] hover:bg-[#152c4d] text-white font-bold text-xs rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 active:scale-98"
                 >
-                  <span>Découvrir nos services</span>
+                  <span>Découvrir nos services industriels</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -240,9 +240,9 @@ export const HomeView: React.FC<Props> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-orange-500">Formations Clés</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-orange-500">Formations Industrielles</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a365d] tracking-tight mt-1">
-              Axes majeurs de nos programmes
+              Axes majeurs de nos programmes de formation au Maroc
             </h2>
           </div>
           <Link
@@ -263,7 +263,7 @@ export const HomeView: React.FC<Props> = ({
               </div>
               <h3 className="font-bold text-[#1a365d] text-base">Automatisme industriel</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Programmation des automates industriels API/PLC, interfaces HMI, supervision SCADA et réseaux de communication industriels.
+                Formation automatisme : programmation d’automates programmables API/PLC, Siemens TIA Portal, IHM, supervision SCADA et réseaux de terrain.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
@@ -285,7 +285,7 @@ export const HomeView: React.FC<Props> = ({
               </div>
               <h3 className="font-bold text-[#1a365d] text-base">Variateurs de vitesse</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Fonctionnement, paramétrage, mise en service, diagnostic et maintenance des variateurs de vitesse.
+                Formation variateur de vitesse : fonctionnement, paramétrage, commande moteur, diagnostic et maintenance industrielle.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
@@ -305,9 +305,9 @@ export const HomeView: React.FC<Props> = ({
               <div className="w-10 h-10 rounded-lg bg-slate-100 text-[#1a365d] flex items-center justify-center font-bold">
                 <Zap className="w-5 h-5 text-[#1a365d]" />
               </div>
-              <h3 className="font-bold text-[#1a365d] text-base">Énergie et électrotechnique</h3>
+              <h3 className="font-bold text-[#1a365d] text-base">Électricité & Énergie solaire</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Installations électriques, efficacité énergétique, qualité de l’énergie et systèmes photovoltaïques.
+                Formation électricité industrielle, dimensionnement d'installations photovoltaïques, efficacité énergétique et qualité du réseau.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
@@ -329,7 +329,7 @@ export const HomeView: React.FC<Props> = ({
               </div>
               <h3 className="font-bold text-[#1a365d] text-base">Maintenance industrielle</h3>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Diagnostic des pannes, lecture de schémas électriques et maintenance des systèmes automatisés.
+                Formation maintenance industrielle : diagnostic méthodique de pannes, schémas électriques et contrôle de cartes électroniques.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
@@ -349,12 +349,12 @@ export const HomeView: React.FC<Props> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl">
           <div className="max-w-2xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-orange-400">Interventions & Services</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-orange-400">Services Industriels au Maroc</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1 text-white">
-              Quatre prestations techniques essentielles
+              Prestations techniques en automatisme & maintenance
             </h2>
             <p className="text-slate-300 text-sm mt-2">
-              Un soutien réactif pour maintenir et faire évoluer vos équipements industriels.
+              Un soutien réactif pour maintenir, réparer et optimiser vos équipements industriels au Maroc.
             </p>
           </div>
 
@@ -385,14 +385,14 @@ export const HomeView: React.FC<Props> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-orange-500">Valeurs & Démarche</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-orange-500">Expertise Industrielle au Maroc</span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1a365d] tracking-tight mt-1">
-                Pourquoi choisir nos services ?
+                Pourquoi choisir INDUSTRIELTECH ?
               </h2>
             </div>
 
             <p className="text-slate-600 text-sm leading-relaxed">
-              Nous privilégions une approche sobre, transparente et rigoureusement orientée terrain pour répondre aux exigences réelles des sites de production.
+              Nous privilégions une approche technique rigoureuse, orientée terrain, pour répondre aux exigences de disponibilité et de rentabilité de votre outil de production.
             </p>
 
             <div className="space-y-4 pt-2">
@@ -402,7 +402,7 @@ export const HomeView: React.FC<Props> = ({
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1a365d] text-sm">Approche orientée vers la pratique</h4>
-                  <p className="text-xs text-slate-600">Manipulations réelles sur bancs de test équipés d’automates, de variateurs et de parties opératives industrielles.</p>
+                  <p className="text-xs text-slate-600">Manipulations réelles sur bancs d’essai équipés d’automates PLC, de variateurs et de parties opératives industrielles.</p>
                 </div>
               </div>
 
@@ -411,8 +411,8 @@ export const HomeView: React.FC<Props> = ({
                   2
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1a365d] text-sm">Accompagnement adapté aux besoins du client</h4>
-                  <p className="text-xs text-slate-600">Analyse préalable des schémas et technologies de votre usine pour adapter sur mesure les contenus.</p>
+                  <h4 className="font-bold text-[#1a365d] text-sm">Accompagnement adapté aux besoins industriels</h4>
+                  <p className="text-xs text-slate-600">Analyse préalable des schémas électriques et technologies installées pour une réponse parfaitement ciblée.</p>
                 </div>
               </div>
 
@@ -422,7 +422,7 @@ export const HomeView: React.FC<Props> = ({
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1a365d] text-sm">Formations pour techniciens, ingénieurs et entreprises</h4>
-                  <p className="text-xs text-slate-600">Du niveau initiation pour nouveaux arrivants jusqu’à l’expertise avancée sur réseaux et régulation.</p>
+                  <p className="text-xs text-slate-600">Du niveau initiation jusqu’à l’expertise avancée en automatisme, maintenance et régulation.</p>
                 </div>
               </div>
 
@@ -432,7 +432,7 @@ export const HomeView: React.FC<Props> = ({
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1a365d] text-sm">Intervention directe sur les équipements industriels</h4>
-                  <p className="text-xs text-slate-600">Prestations de diagnostic, dépannage et programmation exécutées avec de l’outillage spécialisé.</p>
+                  <p className="text-xs text-slate-600">Prestations de diagnostic, dépannage, programmation et réparation exécutées avec un outillage spécialisé.</p>
                 </div>
               </div>
 
@@ -442,7 +442,7 @@ export const HomeView: React.FC<Props> = ({
                 </div>
                 <div>
                   <h4 className="font-bold text-[#1a365d] text-sm">Solutions adaptées à chaque installation</h4>
-                  <p className="text-xs text-slate-600">Recherche d’alternatives économiques lors de l’obsolescence de composants complexes.</p>
+                  <p className="text-xs text-slate-600">Recherche d’alternatives économiques lors de l’obsolescence de composants ou cartes électroniques complexes.</p>
                 </div>
               </div>
             </div>
@@ -454,7 +454,7 @@ export const HomeView: React.FC<Props> = ({
                 <Cpu className="w-5 h-5 text-orange-500" /> Technologies & Marques Maîtrisées
               </h3>
               <p className="text-xs text-slate-600">
-                Interventions et formations compatibles avec les principaux standards de l’industrie :
+                Interventions et formations compatibles avec les principaux standards de l’industrie au Maroc :
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -474,10 +474,10 @@ export const HomeView: React.FC<Props> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-xl border border-slate-800">
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight max-w-3xl mx-auto">
-            Vous avez besoin d’une formation ou d’une intervention technique ?
+            Vous avez besoin d’une formation ou d’une intervention technique au Maroc ?
           </h2>
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Présentez-nous votre besoin afin d’obtenir une proposition adaptée à votre activité et à vos équipements.
+            Présentez-nous votre besoin en automatisme, maintenance industrielle, variateurs de vitesse ou électricité afin d’obtenir un devis personnalisé.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">

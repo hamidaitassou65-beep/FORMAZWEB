@@ -4,19 +4,19 @@ export const TECHNICAL_SERVICES: TechService[] = [
   {
     id: 'reparation',
     title: 'Réparation de Cartes Électroniques Industrielles',
-    shortDescription: 'Diagnostic au composant, remise en état et tests en charge de vos cartes électroniques de variateurs, automates et machines.',
-    fullDescription: 'Nos équipes spécialisées prennent en charge la réparation complète et le reconditionnement des cartes électroniques industrielles devenues introuvables ou coûteuses à remplacer à neuf.',
+    shortDescription: 'Diagnostic et réparation de cartes électroniques industrielles pour variateurs, machines, automatismes et équipements de production au Maroc.',
+    fullDescription: 'Diagnostic de précision et réparation au composant de cartes électroniques industrielles, variateurs de vitesse et cartes de commande d’automates pour prolonger la durée de vie de vos équipements.',
     subFeatures: [
-      'Réparation des cartes électroniques de variateurs de vitesse (Commande & Puissance)',
-      'Réparation des cartes de commande d’automates et cartes d’extension d’E/S',
-      'Recherche approfondie et remplacement des composants défectueux (IGBT, condensateurs, optocoupleurs)',
-      'Nettoyage ultra-sons, désoxydation, contrôle thermique et vernissage de protection',
-      'Tests fonctionnels sur bancs de test sous charge réelle avant réexpédition',
-      'Réparation des cartes électroniques intégrées aux machines industrielles spéciales'
+      'Réparation de cartes électroniques de variateurs de vitesse (puissance & commande)',
+      'Réparation de cartes électroniques industrielles et cartes d’E/S pour automates PLC',
+      'Diagnostic au composant : remplacement IGBT, condensateurs de filtrage, optocoupleurs et drivers',
+      'Nettoyage par ultrasons, désoxydation, contrôle thermique et vernissage tropicalisé',
+      'Tests fonctionnels sur banc d’essai sous charge réelle avant réexpédition au Maroc',
+      'Remise en état de cartes électroniques devenues obsolètes ou introuvables'
     ],
     equipmentTypes: [
-      'Variateurs de fréquence (Siemens, Danfoss, Altivar, ABB, Leroy-Somer)',
-      'Modules d’alimentation à découpage & hacheurs',
+      'Variateurs de fréquence (Siemens Sinamics, Schneider Altivar, Danfoss VLT, ABB ACS)',
+      'Modules d’alimentation à découpage & hacheurs de puissance',
       'Cartes d’axes, cartes d’asservissement & cartes d’E/S',
       'Pupitres opérateurs & écrans tactiles industriels'
     ],
@@ -25,17 +25,17 @@ export const TECHNICAL_SERVICES: TechService[] = [
   },
   {
     id: 'automatisme',
-    title: 'Automatisme Industriel & Programmation API / PLC',
-    shortDescription: 'Développement, modification, sauvegarde et rétrofit de programmes pour automates industriels et IHM.',
-    fullDescription: 'Nous vous accompagnons de la conception du cahier des charges jusqu’à l’optimisation de vos lignes automatisées, pour accroître votre productivité et pérenniser vos installations.',
+    title: 'Programmation Automates PLC & Automatisme Industriel',
+    shortDescription: 'Programmation, modification, diagnostic et optimisation d\'automates industriels PLC pour machines, procédés et installations industrielles au Maroc.',
+    fullDescription: 'Programmation d’automates industriels PLC, rétrofit d’installations obsolètes, création d’IHM et supervision SCADA pour fiabiliser vos lignes de production au Maroc.',
     subFeatures: [
-      'Création de programmes neufs pour automates API/PLC (Siemens, Schneider, Rockwell, Omron, etc.)',
-      'Modification, optimisation et ajout de fonctionnalités sur programmes existants',
-      'Rétrofit et migration des anciens automates obsolètes vers les nouvelles gammes (ex: S7-300 vers S7-1500)',
-      'Sauvegarde préventive (Backup) et restauration de sécurité des programmes PLC/IHM',
-      'Programmation des interfaces Homme-Machine (IHM / HMI) et pupitres de commande',
-      'Configuration des bus de communication industriels (PROFINET, Modbus TCP, Ethernet/IP)',
-      'Assistance technique à la mise au point des machines de production'
+      'Programmation d’automates PLC (Siemens TIA Portal S7-1200/1500, Schneider Modicon, Rockwell)',
+      'Modification, optimisation de cycle et diagnostic de programmes d’automatisme existants',
+      'Rétrofit et migration d’anciens automates (ex: Siemens S7-300 vers S7-1500)',
+      'Sauvegarde préventive (Backup) et archivage sécurisé des programmes PLC et IHM',
+      'Conception d’écrans tactiles IHM/HMI ergonomiques et synoptiques SCADA',
+      'Configuration et diagnostic des réseaux de terrain (PROFINET, Ethernet/IP, Modbus TCP)',
+      'Assistance technique à la mise au point et au démarrage d’usines au Maroc'
     ],
     equipmentTypes: [
       'Automates Siemens S7-1200 / S7-1500 / S7-300 / LOGO!',
@@ -48,45 +48,45 @@ export const TECHNICAL_SERVICES: TechService[] = [
   },
   {
     id: 'diagnostic',
-    title: 'Diagnostic et Dépannage Technique sur Site',
-    shortDescription: 'Intervention d’urgence et diagnostic méthodique de vos pannes électriques, électroniques et d’automatisme.',
-    fullDescription: 'Lorsqu’une ligne s’arrête, chaque minute compte. Nos ingénieurs et techniciens interviennent directement sur site ou à distance pour identifier l’origine exacte du dysfonctionnement.',
+    title: 'Maintenance & Réparation Variateurs de Vitesse et Diagnostic sur Site',
+    shortDescription: 'Diagnostic, paramétrage, maintenance et réparation de variateurs de vitesse pour moteurs, machines et installations industrielles au Maroc.',
+    fullDescription: 'Intervention d’urgence, dépannage industriel et maintenance de variateurs de vitesse pour minimiser les arrêts de production sur l’ensemble du territoire marocain.',
     subFeatures: [
-      'Recherche approfondie des pannes électriques, électroniques et d’automatisme',
-      'Diagnostic poussé des variateurs de vitesse et des boucles de régulation',
-      'Analyse des historiques d’alarmes et levée de doute sur les capteurs/actionneurs',
-      'Dépannage d’urgence sur machines automatisées de production',
-      'Intervention rapide sur site dans notre zone de couverture',
-      'Assistance technique à distance par télémaintenance sécurisée lorsque disponible'
+      'Diagnostic, dépannage et maintenance de variateurs de vitesse multi-marques',
+      'Recherche méthodique de pannes électriques, électroniques et d’automatisme sur site',
+      'Analyse des alarmes (surtension, surintensité, défaut IGBT, surcharge thermique)',
+      'Paramétrage sur mesure, auto-tuning et optimisation du contrôle vectoriel moteur',
+      'Intervention rapide sur site client au Maroc pour dépannage industriel urgent',
+      'Contrôle préventif de l’échauffement, des ventilateurs et des condensateurs DC'
     ],
     equipmentTypes: [
-      'Lignes de conditionnement & d’emballage',
-      'Groupes de pompage & ventilation industrielle',
-      'Presses, extrudeuses & malaxeurs',
-      'Convoyeurs & ponts roulants'
+      'Lignes de conditionnement, convoyeurs & presses',
+      'Groupes de pompage, surpresseurs & ventilation industrielle',
+      'Extrudeuses, mélangeurs & malaxeurs industriels',
+      'Ponts roulants & entraînements synchrones/asynchrones'
     ],
     iconName: 'Wrench',
     ctaText: 'Demander une intervention d’urgence'
   },
   {
     id: 'installation',
-    title: 'Installation et Mise en Service des Équipements',
-    shortDescription: 'Intégration, câblage, paramétrage et essais fonctionnels de vos nouvelles armoires et sous-ensembles industriels.',
-    fullDescription: 'Assurez-vous d’une mise en service conforme aux normes constructeurs et aux exigences de sécurité, garantissant la longévité de votre investissement.',
+    title: 'Maintenance Électrique & Industrielle, Installation et Mise en Service',
+    shortDescription: 'Services de maintenance industrielle, diagnostic électrique, dépannage et assistance technique pour machines et équipements industriels au Maroc.',
+    fullDescription: 'Maintenance électrique industrielle, intégration de coffrets d’automatisme, raccordement et mise en service d’équipements industriels dans le respect des normes.',
     subFeatures: [
-      'Installation physique et raccordement des nouveaux équipements industriels',
-      'Paramétrage sur mesure des variateurs de vitesse et démarreurs progressifs',
-      'Mise en service complète des machines et systèmes de contrôle',
-      'Vérification point par point des Entrées/Sorties (Point-to-Point I/O Check)',
-      'Essais à vide et essais de fonctionnement en charge réelle',
-      'Formation sur le terrain des opérateurs et des équipes d’exploitation',
-      'Accompagnement et suivi d’alignement après la mise en service'
+      'Maintenance électrique industrielle préventive et corrective sur armoires de commande',
+      'Installation physique, câblage et raccordement de nouvelles armoires d’automatisme',
+      'Vérification méthodique point par point des Entrées/Sorties (I/O Check)',
+      'Essais à vide et tests en conditions réelles de production industrielle',
+      'Diagnostic électrique et analyse de la qualité du réseau (harmoniques, déséquilibres)',
+      'Formation sur le terrain des équipes de maintenance interne',
+      'Accompagnement technique continu et assistance au démarrage au Maroc'
     ],
     equipmentTypes: [
-      'Armoires de distribution & coffrets d’automatisme',
-      'Armoires de variation de vitesse forte puissance',
-      'Systèmes de régulation de procédés',
-      'Postes de transformation & sous-stations'
+      'Armoires de distribution électrique & tableaux généraux basse tension (TGBT)',
+      'Armoires de variation de vitesse et coffrets d’automatisme PLC',
+      'Systèmes de contrôle-commande et de régulation thermique/pression',
+      'Postes de distribution et installations de puissance'
     ],
     iconName: 'Settings',
     ctaText: 'Demander une mise en service'

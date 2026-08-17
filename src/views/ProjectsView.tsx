@@ -21,19 +21,19 @@ export const ProjectsView: React.FC<Props> = ({ onOpenQuoteModal }) => {
       <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
           <Wrench className="w-3.5 h-3.5" />
-          <span>Cas Pratiques & Retours d’Expérience</span>
+          <span>Réalisations &amp; Projets en Automatisme et Maintenance au Maroc</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Exemples d’Interventions & Réalisations
+          Réalisations en Automatisme &amp; Maintenance Industrielle
         </h1>
         <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Consultez des cas d’interventions types sur cartes électroniques, automates programmables et variateurs de vitesse illustrant notre méthodologie de diagnostic et de remise en service.
+          Découvrez nos réalisations en automatisme industriel, maintenance industrielle, électricité, variateurs de vitesse et formation technique au Maroc : des projets concrets d'automatisation et de dépannage d'équipements de production.
         </p>
 
         <div className="p-3 bg-slate-800/80 border border-slate-700/80 rounded-xl text-xs text-slate-300 flex items-center gap-2 max-w-2xl">
           <Info className="w-4 h-4 text-orange-400 shrink-0" />
           <span>
-            <strong>Note de transparence :</strong> Conformément aux exigences de rigueur, ces fiches constituent des modèles d’interventions représentatifs. Aucune donnée client confidentielle n'est divulguée.
+            <strong>Note de transparence :</strong> Conformément aux exigences de rigueur, ces fiches constituent des modèles d’interventions représentatifs de notre savoir-faire au Maroc. Aucune donnée client confidentielle n'est divulguée.
           </span>
         </div>
       </div>

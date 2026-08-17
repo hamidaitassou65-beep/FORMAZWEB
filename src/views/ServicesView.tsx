@@ -17,13 +17,13 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
       <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
           <Wrench className="w-3.5 h-3.5" />
-          <span>Services Techniques & Assistance Industrielle</span>
+          <span>Services en Automatisme &amp; Maintenance Industrielle au Maroc</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Services de Maintenance, Réparation & Automatisme
+          Services en Automatisme &amp; Maintenance Industrielle
         </h1>
         <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Assurez la continuité de votre production avec nos prestations d’ingénierie réactives : dépannage d’urgence, réparation de cartes électroniques, programmation d’automates et mise en service sur site.
+          INDUSTRIELTECH délivre des services industriels de pointe au Maroc : programmation automate PLC, diagnostic et dépannage industriel, maintenance de variateurs de vitesse, réparation de cartes électroniques industrielles et maintenance électrique industrielle.
         </p>
       </div>
 
@@ -55,7 +55,7 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/40 to-transparent" />
                 <div className="absolute top-4 left-6">
                   <span className="px-3 py-1 bg-orange-500 text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm">
-                    Pôle Services Technique
+                    Pôle Services Techniques au Maroc
                   </span>
                 </div>
                 <div className="absolute bottom-4 left-6 right-6 text-white flex items-center gap-3">
@@ -129,11 +129,11 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
         <div className="space-y-2 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a365d] text-orange-300 text-xs font-bold">
             <PhoneCall className="w-3.5 h-3.5" />
-            <span>Assistance Dépannage Urgent</span>
+            <span>Assistance Dépannage Industriel d'Urgence</span>
           </div>
-          <h3 className="text-2xl font-black tracking-tight">Panne bloquante sur votre ligne de fabrication ?</h3>
+          <h3 className="text-2xl font-black tracking-tight">Panne bloquante sur votre ligne de fabrication au Maroc ?</h3>
           <p className="text-white/90 text-xs sm:text-sm max-w-xl">
-            Contactez immédiatement nos équipes d’intervention pour évaluer la possibilité d’une prise en charge prioritaire ou d’un télé-diagnostic.
+            Contactez immédiatement nos automaticiens et techniciens de maintenance pour une prise en charge rapide, un diagnostic sur site ou un télé-diagnostic.
           </p>
         </div>
 

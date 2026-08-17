@@ -4,15 +4,15 @@ export const COURSES_DATA: Course[] = [
   // --- A. AUTOMATISME INDUSTRIEL ---
   {
     id: 'auto-01',
-    title: 'Initiation aux Automates Programmables Industriels (API / PLC)',
+    title: 'Formation Automatisme Industriel & Automates Programmables (API / PLC)',
     category: 'automatisme',
     categoryLabel: 'Automatisme industriel',
-    shortDescription: 'Acquérir les bases fondamentales du fonctionnement, du câblage et du diagnostic de premier niveau des automates industriels.',
+    shortDescription: 'Formation pratique en automatisme industriel : automates programmables, PLC, Grafcet, capteurs, actionneurs, diagnostic et applications industrielles.',
     objectives: [
       'Comprendre l’architecture matérielle et logicielle d’un automate programmable (PLC/API).',
       'Identifier les signaux d’entrées/sorties numériques et analogiques.',
-      'Savoir lire un programme simple et interpréter l’état des variables d’automatisme.',
-      'Effectuer un diagnostic de premier niveau en cas de dysfonctionnement sur une ligne.'
+      'Savoir lire un programme simple en Grafcet et Ladder et interpréter l’état des variables d’automatisme.',
+      'Effectuer un diagnostic de premier niveau et la maintenance en cas de dysfonctionnement sur une ligne.'
     ],
     program: [
       {
@@ -26,7 +26,7 @@ export const COURSES_DATA: Course[] = [
       {
         moduleTitle: 'Module 2 : Langages de programmation de base',
         topics: [
-          'Langage Ladder (LADDER/Schéma à contacts)',
+          'Langage Ladder (LADDER/Schéma à contacts) et Grafcet',
           'Langage Logigramme (FBD) et Liste d’instructions (IL/STL)',
           'Temporisateurs, compteurs et opérations arithmétiques'
         ]
@@ -44,7 +44,7 @@ export const COURSES_DATA: Course[] = [
     prerequisites: 'Notions de base en électricité industrielle et lecture de schémas électriques.',
     duration: 'Selon le niveau des participants et le besoin',
     level: 'Initiation',
-    modalities: 'Présentiel en nos locaux, sur site client (intra-entreprise) ou classe virtuelle.',
+    modalities: 'Présentiel en nos locaux, sur site client au Maroc (intra-entreprise) ou classe virtuelle.',
     practicalWork: '70% de travaux pratiques sur bancs pédagogiques réels équipés d’automates et de partie opérative.',
     equipmentAndSoftware: ['Bancs d’essai API (Siemens S7-1200 / Schneider Modicon M221)', 'Logiciels TIA Portal / EcoStruxure Machine Expert', 'Outillage de diagnostic & multimètre'],
     certification: 'Attestation de fin de formation et fiche d’évaluation des compétences acquises.',
@@ -53,23 +53,23 @@ export const COURSES_DATA: Course[] = [
   },
   {
     id: 'auto-02',
-    title: 'Programmation Avancée des Automates API / PLC',
+    title: 'Formation Siemens TIA Portal & Automates S7 (S7-1200 & S7-1500)',
     category: 'automatisme',
     categoryLabel: 'Automatisme industriel',
-    shortDescription: 'Maîtriser la structuration complexe des programmes, le traitement des signaux analogiques et la gestion des blocs fonctionnels.',
+    shortDescription: 'Formation Siemens TIA Portal pour programmer, superviser et diagnostiquer les automates S7-1200 et S7-1500 dans des applications industrielles.',
     objectives: [
-      'Concevoir des programmes structurés en langages Grafcet (SFC), Structured Text (ST) et Ladder.',
+      'Concevoir des programmes structurés en langages Grafcet (SFC), Structured Text (ST) et Ladder sous TIA Portal.',
       'Configurer et étalonner les cartes de mesure analogiques (4-20mA, 0-10V, PT100).',
-      'Créer des blocs fonctionnels réutilisables (FB, FC, DB).',
+      'Créer des blocs fonctionnels réutilisables (FB, FC, DB) pour automates Siemens S7.',
       'Gérer le traitement des alarmes et des modes de marche/arrêt (GEMMA).'
     ],
     program: [
       {
-        moduleTitle: 'Module 1 : Structuration de programmes complexes',
+        moduleTitle: 'Module 1 : Structuration de programmes complexes sous TIA Portal',
         topics: [
           'Découpage fonctionnel selon la norme CEI 61131-3',
           'Mise en œuvre des langages SFC (Grafcet) et ST (Texte Structuré)',
-          'Gestion des blocs de données (DB global et instance)'
+          'Gestion des blocs de données (DB global et instance) Siemens S7-1200/S7-1500'
         ]
       },
       {
@@ -80,11 +80,11 @@ export const COURSES_DATA: Course[] = [
         ]
       }
     ],
-    targetAudience: 'Automaticiens, techniciens supérieurs, ingénieurs d’études et responsables maintenance.',
+    targetAudience: 'Automaticiens, techniciens supérieurs, ingénieurs d’études et responsables maintenance au Maroc.',
     prerequisites: 'Avoir suivi la formation initiation ou posséder une expérience pratique sur PLC.',
     duration: 'Selon le niveau des participants et le besoin',
     level: 'Avancé',
-    modalities: 'Présentiel en laboratoire ou sur site industriel client.',
+    modalities: 'Présentiel en laboratoire ou sur site industriel client au Maroc.',
     practicalWork: 'Exercices pratiques sur cahier des charges réel et simulations d’incidents de procédés.',
     equipmentAndSoftware: ['Siemens TIA Portal V18 / Schneider EcoStruxure', 'Bancs de process régulation température/pression'],
     certification: 'Attestation de fin de formation avec validation des objectifs pédagogiques.',
@@ -96,7 +96,7 @@ export const COURSES_DATA: Course[] = [
     title: 'Programmation des Interfaces Homme-Machine (IHM / HMI)',
     category: 'automatisme',
     categoryLabel: 'Automatisme industriel',
-    shortDescription: 'Concevoir et déployer des écrans tactiles opérateurs ergonomiques reliés aux automates industriels.',
+    shortDescription: 'Concevoir et déployer des écrans tactiles opérateurs ergonomiques reliés aux automates industriels PLC.',
     objectives: [
       'Créer des vues synoptiques d’exploitation ergonomiques.',
       'Configurer les liaisons de communication entre l’IHM et le PLC.',
@@ -158,7 +158,7 @@ export const COURSES_DATA: Course[] = [
     duration: 'Selon le niveau des participants et le besoin',
     level: 'Expert',
     modalities: 'Présentiel ou mixte.',
-    practicalWork: 'Projet complet de supervision de site fictif avec basculement redondant.',
+    practicalWork: 'Projet complet de supervision de site avec basculement redondant.',
     equipmentAndSoftware: ['WinCC Professional / PcVue / Wonderware InTouch'],
     certification: 'Attestation de fin de formation.',
     price: 'Sur devis',
@@ -233,15 +233,15 @@ export const COURSES_DATA: Course[] = [
   // --- B. VARIATEURS DE VITESSE ---
   {
     id: 'var-01',
-    title: 'Paramétrage, Dépannage et Maintenance des Variateurs de Vitesse',
+    title: 'Formation Variateurs de Vitesse Industriels (Paramétrage, Dépannage & Maintenance)',
     category: 'variateurs',
     categoryLabel: 'Variateurs de vitesse',
-    shortDescription: 'Maîtriser le fonctionnement, le choix, le paramétrage et la résolution de défauts des variateurs de fréquence pour moteurs électriques.',
+    shortDescription: 'Formation pratique sur les variateurs de vitesse : paramétrage, commande moteur, diagnostic, dépannage et maintenance industrielle.',
     objectives: [
       'Comprendre les principes physiques de la variation de vitesse sur moteur asynchrone et synchrone.',
       'Câbler la partie puissance (Réseau, Moteur, Résistance de freinage) et la partie commande.',
       'Paramétrer les rampes, constantes V/f, contrôle vectoriel de flux et protections thermiques.',
-      'Interpréter les codes d’alarmes et effectuer le diagnostic de pannes.'
+      'Interpréter les codes d’alarmes et effectuer le diagnostic de pannes et la maintenance de variateurs.'
     ],
     program: [
       {
@@ -267,11 +267,11 @@ export const COURSES_DATA: Course[] = [
         ]
       }
     ],
-    targetAudience: 'Électriciens industriels, techniciens de maintenance, responsables d’équipements, automaticiens.',
+    targetAudience: 'Électriciens industriels, techniciens de maintenance, responsables d’équipements, automaticiens au Maroc.',
     prerequisites: 'Habilitation électrique minimale et notions sur le moteur asynchrone.',
     duration: 'Selon le niveau des participants et le besoin',
     level: 'Intermédiaire',
-    modalities: 'Présentiel sur nos bancs de test multi-marques ou sur votre site d’exploitation.',
+    modalities: 'Présentiel sur nos bancs de test multi-marques ou sur votre site d’exploitation au Maroc.',
     practicalWork: '80% de manipulations directes sur consoles d’affichage et logiciels de paramétrage.',
     equipmentAndSoftware: ['Variateurs Siemens Sinamics, Schneider Altivar, Danfoss VLT, ABB ACS', 'Logiciels Starter/Drive Expert/SoMove', 'Moteurs de test freines'],
     certification: 'Attestation de fin de formation.',
@@ -283,7 +283,7 @@ export const COURSES_DATA: Course[] = [
     title: 'Choix, Dimensionnement et Efficacité Énergétique des Variateurs',
     category: 'variateurs',
     categoryLabel: 'Variateurs de vitesse',
-    shortDescription: 'Optimiser la consommation d’énergie des pompes, ventilateurs et compresseurs par le bon choix de variateur.',
+    shortDescription: 'Optimiser la consommation d’énergie des pompes, ventilateurs et compresseurs par le bon choix de variateur de vitesse.',
     objectives: [
       'Calculer les couples nécessaires selon la charge (Couple constant vs Couple quadratique).',
       'Calculer les gains d’énergie réalisés par la variation de vitesse.',
@@ -314,14 +314,14 @@ export const COURSES_DATA: Course[] = [
   // --- C. ÉNERGIE ET ÉLECTROTECHNIQUE ---
   {
     id: 'ene-01',
-    title: 'Installations Électriques Industrielles et Schémathique',
+    title: 'Formation Électricité Industrielle & Installations Électriques',
     category: 'energie',
     categoryLabel: 'Énergie et électrotechnique',
-    shortDescription: 'Apprendre à concevoir, lire, interpréter et dépanner des armoires et schémas électriques industriels.',
+    shortDescription: 'Formation en électricité industrielle : installations, moteurs, protections, schémas électriques, diagnostic et maintenance des équipements.',
     objectives: [
       'Lire couramment la symbolique normalisée selon les normes CEI / NF C 15-100.',
       'Comprendre le fonctionnement des appareillages de coupure, de protection et de commande (Contacteurs, Disjoncteurs, Relais thermiques).',
-      'Localiser efficacement les pannes électriques dans une armoire industrielle.'
+      'Localiser efficacement les pannes électriques dans une armoire industrielle et assurer la maintenance électrique.'
     ],
     program: [
       {
@@ -333,7 +333,7 @@ export const COURSES_DATA: Course[] = [
         topics: ['Repérage des borniers, câbles et composants', 'Traçage des boucles de sécurité et arrêts d’urgence']
       }
     ],
-    targetAudience: 'Électriciens, techniciens de maintenance, monteurs câbleurs.',
+    targetAudience: 'Électriciens, techniciens de maintenance, monteurs câbleurs au Maroc.',
     prerequisites: 'Aucun prérequis spécifique, ouvert aux profils en reconversion.',
     duration: 'Selon le niveau des participants et le besoin',
     level: 'Initiation',
@@ -346,32 +346,32 @@ export const COURSES_DATA: Course[] = [
   },
   {
     id: 'ene-02',
-    title: 'Qualité de l’Énergie, Perturbations et Systèmes Photovoltaïques',
+    title: 'Formation Photovoltaïque & Énergie Solaire Industrielle',
     category: 'energie',
     categoryLabel: 'Énergie et électrotechnique',
-    shortDescription: 'Mesurer, analyser et corriger la qualité du réseau électrique industriel et intégrer la production photovoltaïque.',
+    shortDescription: 'Formation photovoltaïque sur le dimensionnement, l\'installation, la maintenance, le diagnostic et l\'optimisation des systèmes solaires PV.',
     objectives: [
-      'Analyser les creux de tension, harmoniques et déséquilibres du réseau.',
-      'Utiliser des centrales de mesure et analyseurs de réseau.',
-      'Comprendre le fonctionnement et le raccordement des onduleurs photovoltaïques industriels.'
+      'Dimensionner et installer des générateurs photovoltaïques et onduleurs pour sites industriels.',
+      'Analyser les creux de tension, harmoniques et déséquilibres du réseau électrique.',
+      'Assurer la maintenance préventive et corrective des installations photovoltaïques au Maroc.'
     ],
     program: [
       {
-        moduleTitle: 'Module 1 : Analyse de la qualité de l’onde électrique',
-        topics: ['Facteur de puissance (Cos phi) et compensation d’énergie réactive', 'Mesure des harmoniques jusqu’au rang 50']
+        moduleTitle: 'Module 1 : Dimensionnement et technologies solaires',
+        topics: ['Panneaux solaires PV, structures et câblage DC', 'Onduleurs solaires industriels et raccordement au réseau']
       },
       {
-        moduleTitle: 'Module 2 : Systèmes photovoltaïques industriels',
-        topics: ['Raccordement, autoconsommation et sécurité des installations PV']
+        moduleTitle: 'Module 2 : Analyse de la qualité et maintenance PV',
+        topics: ['Facteur de puissance (Cos phi), harmoniques et compensation réactive', 'Maintenance préventive, contrôles thermographiques et dépannage PV']
       }
     ],
-    targetAudience: 'Responsables d’infrastructures, ingénieurs électriciens, responsables QHSE.',
+    targetAudience: 'Responsables d’infrastructures, ingénieurs électriciens, techniciens énergie solaire au Maroc.',
     prerequisites: 'Habilitation électrique recommandée.',
     duration: 'Selon le niveau des participants et le besoin',
     level: 'Avancé',
     modalities: 'Présentiel avec mesures réelles.',
-    practicalWork: 'Prise de mesure sur réseau électrique avec analyseur Fluke / Chauvin Arnoux.',
-    equipmentAndSoftware: ['Analyseur de réseau triphasé Fluke 435', 'Banc de charge capacitif/inductif'],
+    practicalWork: 'Prise de mesure sur réseau électrique avec analyseur Fluke / Chauvin Arnoux et banc photovoltaïque.',
+    equipmentAndSoftware: ['Analyseur de réseau triphasé Fluke 435', 'Banc de charge solaire et onduleur'],
     certification: 'Attestation de fin de formation.',
     price: 'Sur devis',
     featuredHome: false
@@ -380,14 +380,14 @@ export const COURSES_DATA: Course[] = [
   // --- D. MAINTENANCE INDUSTRIELLE ---
   {
     id: 'maint-01',
-    title: 'Méthodologie de Recherche de Pannes et Diagnostic sur Lignes Automatisées',
+    title: 'Formation Maintenance Industrielle & Diagnostic sur Lignes Automatisées',
     category: 'maintenance',
     categoryLabel: 'Maintenance industrielle',
-    shortDescription: 'Adopter une stratégie systématique et rigoureuse pour éliminer les arrêts non planifiés et maximiser le taux de rendement synthétique (TRS).',
+    shortDescription: 'Formation maintenance industrielle : diagnostic méthodique de pannes, élimination des arrêts non planifiés et maintien du taux de rendement synthétique (TRS).',
     objectives: [
       'Maîtriser les outils de diagnostic systématique (5 Pourquoi, Ishikawa, Arbre des causes).',
       'Diagnostiquer les pannes combinées (Mécaniques, Pneumatiques, Électriques, Électroniques).',
-      'Identifier les défaillances récurrentes des cartes électroniques.'
+      'Identifier les défaillances récurrentes des cartes électroniques industrielles.'
     ],
     program: [
       {

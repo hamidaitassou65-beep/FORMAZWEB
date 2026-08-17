@@ -80,20 +80,13 @@ export const ContactView: React.FC<Props> = ({
         <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>Contact Direct WhatsApp & Email Officiel</span>
+            <span>Contact &amp; Assistance Technique Industrielle au Maroc</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Contactez nos Services Techniques
+            Contactez INDUSTRIELTECH | Formation &amp; Services Industriels
           </h1>
           <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
-            Pour toute demande de devis de formation, de diagnostic sur site, de programmation PLC ou de réparation de carte électronique, renseignez le formulaire ci-dessous ou contactez-nous directement via WhatsApp au <strong className="text-emerald-300">{displayPhone}</strong> ou e-mail à{' '}
-            <button
-              onClick={handleOpenEmailOptions}
-              className="text-orange-300 hover:text-orange-200 font-bold underline cursor-pointer"
-            >
-              {displayEmail}
-            </button>
-            .
+            Contactez INDUSTRIELTECH, société spécialisée en automatisme industriel, maintenance industrielle, variateurs de vitesse et formation professionnelle au Maroc pour toute demande de devis ou d'assistance technique.
           </p>
         </div>
 
@@ -172,7 +165,7 @@ export const ContactView: React.FC<Props> = ({
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-slate-400 block uppercase">Localisation</span>
+                    <span className="text-[11px] font-semibold text-slate-400 block uppercase">Localisation &amp; Siège</span>
                     <span className="font-bold text-[#1a365d] text-sm">{companyInfo.address}</span>
                   </div>
                 </li>
@@ -262,7 +255,7 @@ export const ContactView: React.FC<Props> = ({
                       required
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="ex: Marc Bernard"
+                      placeholder="ex: Ahmed Mansouri"
                       className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     />
                   </div>
@@ -276,7 +269,7 @@ export const ContactView: React.FC<Props> = ({
                       required
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      placeholder="ex: AgroProd S.A."
+                      placeholder="ex: Industrie Maroc S.A."
                       className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     />
                   </div>
@@ -290,7 +283,7 @@ export const ContactView: React.FC<Props> = ({
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="ex: 06 12 34 56 78"
+                      placeholder="ex: +212 600 000 000"
                       className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     />
                   </div>
@@ -304,7 +297,7 @@ export const ContactView: React.FC<Props> = ({
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="ex: m.bernard@agroprod.fr"
+                      placeholder="ex: contact@societe.ma"
                       className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     />
                   </div>
@@ -356,7 +349,7 @@ export const ContactView: React.FC<Props> = ({
                     type="text"
                     value={formData.relatedSubject}
                     onChange={(e) => setFormData({ ...formData, relatedSubject: e.target.value })}
-                    placeholder="ex: Automatisme S7-1200 / Carte variateur Altivar 630..."
+                    placeholder="ex: Formation TIA Portal / Dépannage variateur Siemens / Réparation carte..."
                     className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
                   />
                 </div>
@@ -370,7 +363,7 @@ export const ContactView: React.FC<Props> = ({
                     rows={4}
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    placeholder="Détaillez vos équipements, les références précises ou les objectifs visés..."
+                    placeholder="Détaillez vos équipements, les références précises, le nombre de stagiaires ou les objectifs visés..."
                     className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
                   />
                 </div>
@@ -461,5 +454,3 @@ export const ContactView: React.FC<Props> = ({
     </>
   );
 };
-
-
