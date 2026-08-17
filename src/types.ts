@@ -1,4 +1,4 @@
-export type PageRoute = 'home' | 'courses' | 'services' | 'projects' | 'about' | 'contact';
+export type PageRoute = '/' | '/formations' | '/services' | '/realisations' | '/a-propos' | '/contact';
 
 export type CategoryId = 'automatisme' | 'variateurs' | 'energie' | 'maintenance';
 

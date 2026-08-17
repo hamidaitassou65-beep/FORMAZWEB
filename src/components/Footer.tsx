@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { PageRoute, CompanyInfo } from '../types';
+import { Link } from 'react-router-dom';
+import { CompanyInfo } from '../types';
 import { Phone, Mail, MapPin, Clock, ArrowUpRight, GraduationCap, Wrench, ShieldCheck, MessageSquare } from 'lucide-react';
 import { OFFICIAL_EMAIL } from '../utils/contact';
 import { EmailSelectorModal } from './EmailSelectorModal';
 
 interface Props {
-  onNavigate: (route: PageRoute) => void;
   companyInfo: CompanyInfo;
   onOpenQuoteModal: () => void;
 }
 
-export const Footer: React.FC<Props> = ({ onNavigate, companyInfo, onOpenQuoteModal }) => {
+export const Footer: React.FC<Props> = ({ companyInfo, onOpenQuoteModal }) => {
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   const targetEmail = companyInfo.email || OFFICIAL_EMAIL;
 
@@ -21,17 +21,17 @@ export const Footer: React.FC<Props> = ({ onNavigate, companyInfo, onOpenQuoteMo
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
             {/* Col 1: About */}
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
+              <Link to="/" className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
                   <div className="relative flex items-center justify-center">
                     <GraduationCap className="w-5 h-5 text-white absolute -top-1 -left-1" />
                     <Wrench className="w-4 h-4 text-slate-900 absolute -bottom-1 -right-1" />
                   </div>
                 </div>
-                <span className="font-extrabold text-white text-lg tracking-tight">
+                <span className="font-extrabold text-white text-lg tracking-tight hover:text-orange-400 transition-colors">
                   {companyInfo.name}
                 </span>
-              </div>
+              </Link>
 
               <p className="text-slate-400 text-xs leading-relaxed">
                 Spécialiste en ingénierie industrielle, formations techniques en automatisme, variateurs de vitesse et électrotechnique, ainsi que services de maintenance, réparation et dépannage d’équipements.
@@ -40,7 +40,7 @@ export const Footer: React.FC<Props> = ({ onNavigate, companyInfo, onOpenQuoteMo
               <div className="pt-2">
                 <button
                   onClick={onOpenQuoteModal}
-                  className="px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-lg transition-colors inline-flex items-center gap-1.5 shadow-md"
+                  className="px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-lg transition-colors inline-flex items-center gap-1.5 shadow-md active:scale-98"
                 >
                   <span>Demander une intervention</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -53,52 +53,52 @@ export const Footer: React.FC<Props> = ({ onNavigate, companyInfo, onOpenQuoteMo
               <h4 className="text-xs font-bold uppercase tracking-wider text-white">Navigation</h4>
               <ul className="space-y-2 text-xs">
                 <li>
-                  <button
-                    onClick={() => onNavigate('home')}
+                  <Link
+                    to="/"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
                     › Accueil
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate('courses')}
+                  <Link
+                    to="/formations"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
                     › Catalogue des Formations
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate('services')}
+                  <Link
+                    to="/services"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
                     › Services & Dépannage
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate('projects')}
+                  <Link
+                    to="/realisations"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
                     › Réalisations & Exemples
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate('about')}
+                  <Link
+                    to="/a-propos"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
                     › À propos de l’entreprise
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => onNavigate('contact')}
+                  <Link
+                    to="/contact"
                     className="hover:text-white transition-colors flex items-center gap-1"
                   >
                     › Contact & Devis
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -184,9 +184,9 @@ export const Footer: React.FC<Props> = ({ onNavigate, companyInfo, onOpenQuoteMo
               <span className="flex items-center gap-1 text-slate-400">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Site conforme RGPD & Données sécurisées
               </span>
-              <button onClick={() => onNavigate('contact')} className="hover:text-white transition-colors">
+              <Link to="/contact" className="hover:text-white transition-colors">
                 Mentions Légales
-              </button>
+              </Link>
             </div>
           </div>
         </div>

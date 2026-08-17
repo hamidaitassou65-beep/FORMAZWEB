@@ -1,5 +1,6 @@
 import React from 'react';
-import { PageRoute, CompanyInfo } from '../types';
+import { Link, useNavigate } from 'react-router-dom';
+import { CompanyInfo } from '../types';
 import { COURSES_DATA } from '../data/courses';
 import { TECHNICAL_SERVICES } from '../data/services';
 import { INDUSTRIAL_TECHNOLOGIES } from '../data/technologies';
@@ -10,19 +11,16 @@ import industrialTrainingImg from '../assets/images/industrial_training_17863838
 import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
 
 interface Props {
-  onNavigate: (route: PageRoute) => void;
   companyInfo: CompanyInfo;
   onOpenQuoteModal: (type?: any, subject?: string) => void;
-  onSelectCourse: (courseId: string) => void;
+  onSelectCourse?: (courseId: string) => void;
 }
 
 export const HomeView: React.FC<Props> = ({
-  onNavigate,
   companyInfo,
   onOpenQuoteModal,
-  onSelectCourse,
 }) => {
-  const featuredCourses = COURSES_DATA.filter((c) => c.featuredHome);
+  const navigate = useNavigate();
 
   return (
     <div className="space-y-16 pb-16">
@@ -50,14 +48,14 @@ export const HomeView: React.FC<Props> = ({
 
               {/* Hero Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => onNavigate('courses')}
+                <Link
+                  to="/formations"
                   className="px-6 py-3 bg-white text-[#1a365d] hover:bg-slate-100 font-bold text-sm rounded-lg shadow-lg transition-all flex items-center gap-2 active:scale-98"
                 >
                   <GraduationCap className="w-4 h-4 text-[#1a365d]" />
                   <span>Découvrir nos formations</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
 
                 <button
                   onClick={() => onOpenQuoteModal('Demande de devis')}
@@ -169,13 +167,13 @@ export const HomeView: React.FC<Props> = ({
               </div>
 
               <div className="pt-6 border-t border-slate-100">
-                <button
-                  onClick={() => onNavigate('courses')}
+                <Link
+                  to="/formations"
                   className="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 active:scale-98"
                 >
                   <span>Voir le catalogue</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -225,13 +223,13 @@ export const HomeView: React.FC<Props> = ({
               </div>
 
               <div className="pt-6 border-t border-slate-100">
-                <button
-                  onClick={() => onNavigate('services')}
+                <Link
+                  to="/services"
                   className="w-full py-3 bg-[#1a365d] hover:bg-[#152c4d] text-white font-bold text-xs rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 active:scale-98"
                 >
                   <span>Découvrir nos services</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -247,13 +245,13 @@ export const HomeView: React.FC<Props> = ({
               Axes majeurs de nos programmes
             </h2>
           </div>
-          <button
-            onClick={() => onNavigate('courses')}
+          <Link
+            to="/formations"
             className="text-xs font-bold text-orange-500 hover:text-orange-600 flex items-center gap-1 self-start md:self-auto"
           >
             <span>Voir toutes les formations ({COURSES_DATA.length})</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -269,13 +267,13 @@ export const HomeView: React.FC<Props> = ({
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
-              <button
-                onClick={() => onNavigate('courses')}
+              <Link
+                to="/formations"
                 className="w-full py-2.5 bg-slate-50 hover:bg-orange-500 hover:text-white text-[#1a365d] text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5"
               >
                 <span>Voir la formation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -291,13 +289,13 @@ export const HomeView: React.FC<Props> = ({
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
-              <button
-                onClick={() => onNavigate('courses')}
+              <Link
+                to="/formations"
                 className="w-full py-2.5 bg-slate-50 hover:bg-orange-500 hover:text-white text-[#1a365d] text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5"
               >
                 <span>Voir la formation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -313,13 +311,13 @@ export const HomeView: React.FC<Props> = ({
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
-              <button
-                onClick={() => onNavigate('courses')}
+              <Link
+                to="/formations"
                 className="w-full py-2.5 bg-slate-50 hover:bg-orange-500 hover:text-white text-[#1a365d] text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5"
               >
                 <span>Voir la formation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -335,13 +333,13 @@ export const HomeView: React.FC<Props> = ({
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-100">
-              <button
-                onClick={() => onNavigate('courses')}
+              <Link
+                to="/formations"
                 className="w-full py-2.5 bg-slate-50 hover:bg-orange-500 hover:text-white text-[#1a365d] text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1.5"
               >
                 <span>Voir la formation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -489,12 +487,12 @@ export const HomeView: React.FC<Props> = ({
             >
               Demander un devis
             </button>
-            <button
-              onClick={() => onNavigate('contact')}
+            <Link
+              to="/contact"
               className="px-6 py-3 bg-white text-[#1a365d] hover:bg-slate-100 font-bold text-sm rounded-lg transition-colors shadow-md"
             >
               Nous contacter
-            </button>
+            </Link>
           </div>
         </div>
       </section>

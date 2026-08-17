@@ -1,43 +1,39 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { PageRoute, CompanyInfo } from '../types';
 import { Phone, Mail, MapPin, Menu, X, ArrowRight, Wrench, GraduationCap } from 'lucide-react';
 import { OFFICIAL_EMAIL } from '../utils/contact';
 import { EmailSelectorModal } from './EmailSelectorModal';
 
 interface Props {
-  currentRoute: PageRoute;
-  onNavigate: (route: PageRoute) => void;
   companyInfo: CompanyInfo;
-  onOpenSettings: () => void;
+  onOpenSettings?: () => void;
   onOpenQuoteModal: () => void;
 }
 
 export const Header: React.FC<Props> = ({
-  currentRoute,
-  onNavigate,
   companyInfo,
-  onOpenSettings,
   onOpenQuoteModal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [emailModalOpen, setEmailModalOpen] = useState(false);
+  const location = useLocation();
 
   const phoneDisplay = companyInfo.phone || '+212 723033508';
   const emailDisplay = companyInfo.email || OFFICIAL_EMAIL;
 
-  const navItems: { label: string; route: PageRoute }[] = [
-    { label: 'Accueil', route: 'home' },
-    { label: 'Formations', route: 'courses' },
-    { label: 'Services', route: 'services' },
-    { label: 'Réalisations', route: 'projects' },
-    { label: 'À propos', route: 'about' },
-    { label: 'Contact', route: 'contact' },
+  const navItems: { label: string; path: PageRoute }[] = [
+    { label: 'Accueil', path: '/' },
+    { label: 'Formations', path: '/formations' },
+    { label: 'Services', path: '/services' },
+    { label: 'Réalisations', path: '/realisations' },
+    { label: 'À propos', path: '/a-propos' },
+    { label: 'Contact', path: '/contact' },
   ];
 
-  const handleNavClick = (route: PageRoute) => {
-    onNavigate(route);
-    setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const isPathActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(path + '/');
   };
 
   return (
@@ -75,8 +71,8 @@ export const Header: React.FC<Props> = ({
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between">
         {/* Brand Logo & Name */}
-        <button
-          onClick={() => handleNavClick('home')}
+        <Link
+          to="/"
           className="flex items-center gap-3 text-left group"
         >
           <div className="w-10 h-10 rounded-xl bg-[#1a365d] text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:bg-[#152c4d] transition-colors">
@@ -93,16 +89,16 @@ export const Header: React.FC<Props> = ({
               Automatisme • Maintenance • Formations
             </span>
           </div>
-        </button>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navItems.map((item) => {
-            const isActive = currentRoute === item.route;
+            const isActive = isPathActive(item.path);
             return (
-              <button
-                key={item.route}
-                onClick={() => handleNavClick(item.route)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all ${
                   isActive
                     ? 'text-[#1a365d] bg-orange-50/60 font-bold border-b-2 border-orange-500'
@@ -110,7 +106,7 @@ export const Header: React.FC<Props> = ({
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -140,11 +136,12 @@ export const Header: React.FC<Props> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 animate-fadeIn">
           {navItems.map((item) => {
-            const isActive = currentRoute === item.route;
+            const isActive = isPathActive(item.path);
             return (
-              <button
-                key={item.route}
-                onClick={() => handleNavClick(item.route)}
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMobileMenuOpen(false)}
                 className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold flex items-center justify-between ${
                   isActive
                     ? 'bg-orange-50 text-[#1a365d] font-bold border-l-4 border-orange-500'
@@ -153,7 +150,7 @@ export const Header: React.FC<Props> = ({
               >
                 <span>{item.label}</span>
                 {isActive && <span className="w-2 h-2 rounded-full bg-orange-500" />}
-              </button>
+              </Link>
             );
           })}
 

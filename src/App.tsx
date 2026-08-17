@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { PageRoute, CompanyInfo, Course, RequestType } from './types';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { CompanyInfo, Course, RequestType } from './types';
 import { getStoredCompanyInfo } from './data/company';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -15,8 +16,66 @@ import { ProjectsView } from './views/ProjectsView';
 import { AboutView } from './views/AboutView';
 import { ContactView } from './views/ContactView';
 
-export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<PageRoute>('home');
+/**
+ * Scroll to top automatically when route pathname changes
+ */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname]);
+
+  return null;
+}
+
+/**
+ * Manages SEO Canonical URL tag & migration of legacy hash URLs
+ */
+function SeoAndHashMigration() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // 1. Detect and migrate any legacy hash-based URLs (e.g. #/projects, #courses) to clean routes
+    if (window.location.hash) {
+      const cleanHash = window.location.hash.replace('#/', '').replace('#', '');
+      const hashMap: Record<string, string> = {
+        courses: '/formations',
+        formations: '/formations',
+        services: '/services',
+        projects: '/realisations',
+        realisations: '/realisations',
+        about: '/a-propos',
+        'a-propos': '/a-propos',
+        contact: '/contact',
+        home: '/',
+      };
+
+      if (hashMap[cleanHash]) {
+        navigate(hashMap[cleanHash], { replace: true });
+      }
+    }
+  }, [navigate]);
+
+  useEffect(() => {
+    // 2. Maintain canonical link tag with clean URL without hash
+    const cleanPath = location.pathname === '/' ? '' : location.pathname;
+    const canonicalUrl = `https://industrieltech.com${cleanPath}`;
+
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+  }, [location.pathname]);
+
+  return null;
+}
+
+function MainLayout() {
   const [companyInfo, setCompanyInfo] = useState<CompanyInfo>(getStoredCompanyInfo());
 
   // Modals state
@@ -27,26 +86,6 @@ export default function App() {
 
   const [courseModalData, setCourseModalData] = useState<Course | null>(null);
 
-  // Handle URL hash changes for smooth anchor / routing support
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '') as PageRoute;
-      if (['home', 'courses', 'services', 'projects', 'about', 'contact'].includes(hash)) {
-        setCurrentRoute(hash);
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  const navigateTo = (route: PageRoute) => {
-    setCurrentRoute(route);
-    window.location.hash = route;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleOpenQuoteModal = (type: RequestType = 'Demande de devis', subject: string = '') => {
     setQuotePrefilledType(type);
     setQuotePrefilledSubject(subject);
@@ -55,67 +94,87 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+      <ScrollToTop />
+      <SeoAndHashMigration />
+
       {/* Navigation Header */}
       <Header
-        currentRoute={currentRoute}
-        onNavigate={navigateTo}
         companyInfo={companyInfo}
         onOpenSettings={() => setIsSettingsOpen(true)}
         onOpenQuoteModal={() => handleOpenQuoteModal('Demande de devis')}
       />
 
-      {/* Main Content Area */}
+      {/* Main Content Area with Clean Routes */}
       <main className="flex-grow">
-        {currentRoute === 'home' && (
-          <HomeView
-            onNavigate={navigateTo}
-            companyInfo={companyInfo}
-            onOpenQuoteModal={handleOpenQuoteModal}
-            onSelectCourse={(courseId) => {
-              navigateTo('courses');
-            }}
+        <Routes>
+          {/* Main Clean Routes */}
+          <Route
+            path="/"
+            element={
+              <HomeView
+                companyInfo={companyInfo}
+                onOpenQuoteModal={handleOpenQuoteModal}
+              />
+            }
           />
-        )}
+          <Route
+            path="/formations"
+            element={
+              <CoursesView
+                onSelectCourse={(course) => setCourseModalData(course)}
+                onRequestCourse={(title) => handleOpenQuoteModal('Formation', title)}
+              />
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <ServicesView
+                onRequestService={(title) => handleOpenQuoteModal('Diagnostic ou dépannage', title)}
+              />
+            }
+          />
+          <Route
+            path="/realisations"
+            element={
+              <ProjectsView
+                onOpenQuoteModal={handleOpenQuoteModal}
+              />
+            }
+          />
+          <Route
+            path="/a-propos"
+            element={
+              <AboutView
+                companyInfo={companyInfo}
+                onOpenSettings={() => setIsSettingsOpen(true)}
+                onOpenQuoteModal={() => handleOpenQuoteModal('Demande de devis')}
+              />
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <ContactView
+                companyInfo={companyInfo}
+                initialType={quotePrefilledType}
+                initialSubject={quotePrefilledSubject}
+              />
+            }
+          />
 
-        {currentRoute === 'courses' && (
-          <CoursesView
-            onSelectCourse={(course) => setCourseModalData(course)}
-            onRequestCourse={(title) => handleOpenQuoteModal('Formation', title)}
-          />
-        )}
+          {/* Legacy route redirects to French clean routes */}
+          <Route path="/projects" element={<Navigate to="/realisations" replace />} />
+          <Route path="/courses" element={<Navigate to="/formations" replace />} />
+          <Route path="/about" element={<Navigate to="/a-propos" replace />} />
 
-        {currentRoute === 'services' && (
-          <ServicesView
-            onRequestService={(title) => handleOpenQuoteModal('Diagnostic ou dépannage', title)}
-          />
-        )}
-
-        {currentRoute === 'projects' && (
-          <ProjectsView
-            onOpenQuoteModal={handleOpenQuoteModal}
-          />
-        )}
-
-        {currentRoute === 'about' && (
-          <AboutView
-            companyInfo={companyInfo}
-            onOpenSettings={() => setIsSettingsOpen(true)}
-            onOpenQuoteModal={() => handleOpenQuoteModal('Demande de devis')}
-          />
-        )}
-
-        {currentRoute === 'contact' && (
-          <ContactView
-            companyInfo={companyInfo}
-            initialType={quotePrefilledType}
-            initialSubject={quotePrefilledSubject}
-          />
-        )}
+          {/* 404 Wildcard redirect to Home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
       {/* Footer */}
       <Footer
-        onNavigate={navigateTo}
         companyInfo={companyInfo}
         onOpenQuoteModal={() => handleOpenQuoteModal('Demande de devis')}
       />
@@ -150,4 +209,12 @@ export default function App() {
       />
     </div>
   );
-};
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <MainLayout />
+    </BrowserRouter>
+  );
+}
