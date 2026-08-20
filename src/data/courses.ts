@@ -1,30 +1,4 @@
 import { Course } from '../types';
-import formationAutomatismePlcWebp from '../assets/images/formation-automatisme-plc.webp';
-import formationAutomatismePlcJpg from '../assets/images/formation-automatisme-plc.jpg';
-import formationIhmHmiWebp from '../assets/images/formation-ihm-hmi.webp';
-import formationIhmHmiJpg from '../assets/images/formation-ihm-hmi.jpg';
-import formationScadaWebp from '../assets/images/formation-supervision-scada.webp';
-import formationScadaJpg from '../assets/images/formation-supervision-scada.jpg';
-import formationReseauxWebp from '../assets/images/formation-reseaux-industriels.webp';
-import formationReseauxJpg from '../assets/images/formation-reseaux-industriels.jpg';
-import formationDiagnosticWebp from '../assets/images/formation-diagnostic-systemes.webp';
-import formationDiagnosticJpg from '../assets/images/formation-diagnostic-systemes.jpg';
-import formationVariateursWebp from '../assets/images/formation-variateurs-vitesse.webp';
-import formationVariateursJpg from '../assets/images/formation-variateurs-vitesse.jpg';
-import formationPhotovoltaiqueWebp from '../assets/images/formation-photovoltaique.webp';
-import formationPhotovoltaiqueJpg from '../assets/images/formation-photovoltaique.jpg';
-import formationElectriciteWebp from '../assets/images/formation-electricite-industrielle.webp';
-import formationElectriciteJpg from '../assets/images/formation-electricite-industrielle.jpg';
-import formationEnergieIsoWebp from '../assets/images/formation-efficacite-energetique.webp';
-import formationEnergieIsoJpg from '../assets/images/formation-efficacite-energetique.jpg';
-import formationMaintenanceWebp from '../assets/images/formation-maintenance-industrielle.webp';
-import formationMaintenanceJpg from '../assets/images/formation-maintenance-industrielle.jpg';
-import formationElectroniqueWebp from '../assets/images/formation-electronique-cartes.webp';
-import formationElectroniqueJpg from '../assets/images/formation-electronique-cartes.jpg';
-import formationHabilitationWebp from '../assets/images/formation-habilitation-electrique.webp';
-import formationHabilitationJpg from '../assets/images/formation-habilitation-electrique.jpg';
-import formationQhseWebp from '../assets/images/formation-qhse.webp';
-import formationQhseJpg from '../assets/images/formation-qhse.jpg';
 
 export const COURSES_DATA: Course[] = [
   // 1 — Formation Automatisme Industriel & Automates Programmables
@@ -34,9 +8,9 @@ export const COURSES_DATA: Course[] = [
     category: 'automatisme',
     categoryLabel: 'AUTOMATISME INDUSTRIEL',
     shortDescription: 'Formation pratique couvrant les fondamentaux de l’automatisme industriel, la programmation des automates PLC/API, le Grafcet, les capteurs, les actionneurs, le diagnostic et les applications industrielles.',
-    image: formationAutomatismePlcWebp,
-    imageWebp: formationAutomatismePlcWebp,
-    imageJpg: formationAutomatismePlcJpg,
+    image: '/images/formations/formation-automatisme-plc.webp',
+    imageWebp: '/images/formations/formation-automatisme-plc.webp',
+    imageJpg: '/images/formations/formation-automatisme-plc.jpg',
     imageAlt: 'Formation en automatisme industriel et programmation d\'automates PLC',
     seoFileName: 'formation-automatisme-industriel-automates-plc.webp',
     objectives: [
@@ -92,9 +66,9 @@ export const COURSES_DATA: Course[] = [
     category: 'supervision',
     categoryLabel: 'AUTOMATISME & SUPERVISION',
     shortDescription: 'Conception, configuration et programmation d’interfaces opérateur permettant la visualisation, la commande, le diagnostic et le suivi des équipements automatisés.',
-    image: formationIhmHmiWebp,
-    imageWebp: formationIhmHmiWebp,
-    imageJpg: formationIhmHmiJpg,
+    image: '/images/formations/formation-ihm-hmi.webp',
+    imageWebp: '/images/formations/formation-ihm-hmi.webp',
+    imageJpg: '/images/formations/formation-ihm-hmi.jpg',
     imageAlt: 'Formation en programmation des interfaces homme-machine IHM HMI',
     seoFileName: 'formation-ihm-hmi-interface-homme-machine.webp',
     objectives: [
@@ -149,9 +123,9 @@ export const COURSES_DATA: Course[] = [
     category: 'scada',
     categoryLabel: 'SUPERVISION INDUSTRIELLE',
     shortDescription: 'Formation à la conception, au déploiement et à l’exploitation de systèmes SCADA pour la supervision, l’acquisition des données, les alarmes, les tendances et le pilotage des installations industrielles.',
-    image: formationScadaWebp,
-    imageWebp: formationScadaWebp,
-    imageJpg: formationScadaJpg,
+    image: '/images/formations/formation-supervision-scada.webp',
+    imageWebp: '/images/formations/formation-supervision-scada.webp',
+    imageJpg: '/images/formations/formation-supervision-scada.jpg',
     imageAlt: 'Formation en supervision industrielle SCADA WinCC InTouch et PC Vue',
     seoFileName: 'formation-supervision-industrielle-scada.webp',
     objectives: [
@@ -206,9 +180,9 @@ export const COURSES_DATA: Course[] = [
     category: 'reseaux',
     categoryLabel: 'RÉSEAUX INDUSTRIELS',
     shortDescription: 'Formation consacrée à la configuration, au diagnostic et à la maintenance des réseaux de communication utilisés pour connecter automates, variateurs, IHM et équipements industriels.',
-    image: formationReseauxWebp,
-    imageWebp: formationReseauxWebp,
-    imageJpg: formationReseauxJpg,
+    image: '/images/formations/formation-reseaux-industriels.webp',
+    imageWebp: '/images/formations/formation-reseaux-industriels.webp',
+    imageJpg: '/images/formations/formation-reseaux-industriels.jpg',
     imageAlt: 'Formation en réseaux industriels PROFINET Ethernet IP et Modbus TCP',
     seoFileName: 'formation-reseaux-communication-industriels-profinet-modbus.webp',
     objectives: [
@@ -263,9 +237,9 @@ export const COURSES_DATA: Course[] = [
     category: 'diagnostic',
     categoryLabel: 'DIAGNOSTIC & MAINTENANCE',
     shortDescription: 'Méthodologie pratique pour analyser rapidement les dysfonctionnements des automatismes, identifier l’origine des pannes et réduire les temps d’arrêt des équipements de production.',
-    image: formationDiagnosticWebp,
-    imageWebp: formationDiagnosticWebp,
-    imageJpg: formationDiagnosticJpg,
+    image: '/images/formations/formation-diagnostic-systemes.webp',
+    imageWebp: '/images/formations/formation-diagnostic-systemes.webp',
+    imageJpg: '/images/formations/formation-diagnostic-systemes.jpg',
     imageAlt: 'Formation au diagnostic des systèmes automatisés en production',
     seoFileName: 'formation-diagnostic-systemes-automatises-production.webp',
     objectives: [
@@ -320,9 +294,9 @@ export const COURSES_DATA: Course[] = [
     category: 'variateurs',
     categoryLabel: 'VARIATEURS DE VITESSE',
     shortDescription: 'Formation pratique consacrée au fonctionnement, au paramétrage, à la mise en service, au diagnostic et à la maintenance des variateurs de vitesse industriels.',
-    image: formationVariateursWebp,
-    imageWebp: formationVariateursWebp,
-    imageJpg: formationVariateursJpg,
+    image: '/images/formations/formation-variateurs-vitesse.webp',
+    imageWebp: '/images/formations/formation-variateurs-vitesse.webp',
+    imageJpg: '/images/formations/formation-variateurs-vitesse.jpg',
     imageAlt: 'Formation en paramétrage et maintenance des variateurs de vitesse industriels',
     seoFileName: 'formation-variateurs-vitesse-industriels-maintenance.webp',
     objectives: [
@@ -378,9 +352,9 @@ export const COURSES_DATA: Course[] = [
     category: 'solaire',
     categoryLabel: 'ÉNERGIE SOLAIRE',
     shortDescription: 'Formation couvrant l’étude, le dimensionnement, l’installation, le câblage, la mise en service et les principes de maintenance des installations photovoltaïques.',
-    image: formationPhotovoltaiqueWebp,
-    imageWebp: formationPhotovoltaiqueWebp,
-    imageJpg: formationPhotovoltaiqueJpg,
+    image: '/images/formations/formation-photovoltaique.webp',
+    imageWebp: '/images/formations/formation-photovoltaique.webp',
+    imageJpg: '/images/formations/formation-photovoltaique.jpg',
     imageAlt: 'Formation au dimensionnement et à l\'installation des systèmes photovoltaïques',
     seoFileName: 'formation-dimensionnement-installation-photovoltaique.webp',
     objectives: [
@@ -435,9 +409,9 @@ export const COURSES_DATA: Course[] = [
     category: 'electricite',
     categoryLabel: 'ÉLECTRICITÉ INDUSTRIELLE',
     shortDescription: 'Formation pratique sur les installations électriques basse tension, les schémas électriques, les protections, les moteurs, le câblage, les mesures et le diagnostic des circuits industriels.',
-    image: formationElectriciteWebp,
-    imageWebp: formationElectriciteWebp,
-    imageJpg: formationElectriciteJpg,
+    image: '/images/formations/formation-electricite-industrielle.webp',
+    imageWebp: '/images/formations/formation-electricite-industrielle.webp',
+    imageJpg: '/images/formations/formation-electricite-industrielle.jpg',
     imageAlt: 'Formation en électricité industrielle et installations électriques basse tension',
     seoFileName: 'formation-electricite-industrielle-installations-bt.webp',
     objectives: [
@@ -492,9 +466,9 @@ export const COURSES_DATA: Course[] = [
     category: 'efficacite',
     categoryLabel: 'EFFICACITÉ ÉNERGÉTIQUE',
     shortDescription: 'Formation permettant de comprendre les principes du management de l’énergie, d’identifier les usages énergétiques significatifs, de définir des indicateurs de performance énergétique et d’appliquer les principes de l’ISO 50001.',
-    image: formationEnergieIsoWebp,
-    imageWebp: formationEnergieIsoWebp,
-    imageJpg: formationEnergieIsoJpg,
+    image: '/images/formations/formation-efficacite-energetique.webp',
+    imageWebp: '/images/formations/formation-efficacite-energetique.webp',
+    imageJpg: '/images/formations/formation-efficacite-energetique.jpg',
     imageAlt: 'Formation en efficacité énergétique industrielle et norme ISO 50001',
     seoFileName: 'formation-efficacite-energetique-industrie-iso50001.webp',
     objectives: [
@@ -549,9 +523,9 @@ export const COURSES_DATA: Course[] = [
     category: 'maintenance',
     categoryLabel: 'MAINTENANCE INDUSTRIELLE',
     shortDescription: 'Formation destinée au développement des compétences en maintenance préventive, corrective et diagnostique des machines et équipements industriels.',
-    image: formationMaintenanceWebp,
-    imageWebp: formationMaintenanceWebp,
-    imageJpg: formationMaintenanceJpg,
+    image: '/images/formations/formation-maintenance-industrielle.webp',
+    imageWebp: '/images/formations/formation-maintenance-industrielle.webp',
+    imageJpg: '/images/formations/formation-maintenance-industrielle.jpg',
     imageAlt: 'Formation pratique en maintenance et diagnostic des équipements industriels',
     seoFileName: 'formation-maintenance-industrielle-diagnostic.webp',
     objectives: [
@@ -606,9 +580,9 @@ export const COURSES_DATA: Course[] = [
     category: 'electronique',
     categoryLabel: 'ÉLECTRONIQUE INDUSTRIELLE',
     shortDescription: 'Formation pratique sur les méthodes de contrôle, de mesure, de diagnostic et d’identification des défauts des cartes électroniques utilisées dans les équipements industriels.',
-    image: formationElectroniqueWebp,
-    imageWebp: formationElectroniqueWebp,
-    imageJpg: formationElectroniqueJpg,
+    image: '/images/formations/formation-electronique-cartes.webp',
+    imageWebp: '/images/formations/formation-electronique-cartes.webp',
+    imageJpg: '/images/formations/formation-electronique-cartes.jpg',
     imageAlt: 'Formation au diagnostic et contrôle des cartes électroniques industrielles',
     seoFileName: 'formation-diagnostic-cartes-electroniques-industrielles.webp',
     objectives: [
@@ -663,9 +637,9 @@ export const COURSES_DATA: Course[] = [
     category: 'securite',
     categoryLabel: 'SÉCURITÉ ÉLECTRIQUE',
     shortDescription: 'Formation consacrée aux règles de sécurité, aux risques électriques, aux procédures d’intervention, de consignation et aux bonnes pratiques relatives aux opérations sur ou à proximité des installations électriques.',
-    image: formationHabilitationWebp,
-    imageWebp: formationHabilitationWebp,
-    imageJpg: formationHabilitationJpg,
+    image: '/images/formations/formation-habilitation-electrique.webp',
+    imageWebp: '/images/formations/formation-habilitation-electrique.webp',
+    imageJpg: '/images/formations/formation-habilitation-electrique.jpg',
     imageAlt: 'Formation en habilitation et sécurité électrique en environnement professionnel',
     seoFileName: 'formation-habilitation-electrique-securite.webp',
     objectives: [
@@ -722,9 +696,9 @@ export const COURSES_DATA: Course[] = [
     category: 'qhse',
     categoryLabel: 'QHSE',
     shortDescription: 'Formation sur les fondamentaux de la qualité, de la santé et sécurité au travail, de la prévention des risques et de la maîtrise des impacts environnementaux en milieu professionnel.',
-    image: formationQhseWebp,
-    imageWebp: formationQhseWebp,
-    imageJpg: formationQhseJpg,
+    image: '/images/formations/formation-qhse.webp',
+    imageWebp: '/images/formations/formation-qhse.webp',
+    imageJpg: '/images/formations/formation-qhse.jpg',
     imageAlt: 'Formation QHSE en qualité hygiène sécurité et environnement industriel',
     seoFileName: 'formation-qhse-qualite-hygiene-securite-environnement.webp',
     objectives: [
