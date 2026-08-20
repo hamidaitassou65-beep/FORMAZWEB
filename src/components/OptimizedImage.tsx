@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -9,7 +9,6 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   loading?: 'lazy' | 'eager';
   fetchPriority?: 'high' | 'low' | 'auto';
   className?: string;
-  containerClassName?: string;
   fallbackSrc?: string;
 }
 
@@ -22,20 +21,28 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   loading = 'lazy',
   fetchPriority = 'auto',
   className = '',
-  containerClassName = '',
   fallbackSrc = '/images/fallback-industrie.webp',
   onError,
   ...rest
 }) => {
-  const [currentSrc, setCurrentSrc] = useState<string>(src);
-  const [currentWebp, setCurrentWebp] = useState<string | undefined>(webpSrc || (src.endsWith('.jpg') ? src.replace(/\.jpg$/, '.webp') : undefined));
-  const [hasError, setHasError] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(src);
+  const [imgWebp, setImgWebp] = useState<string | undefined>(
+    webpSrc || (src.endsWith('.jpg') ? src.replace(/\.jpg$/, '.webp') : undefined)
+  );
+  const [isFailed, setIsFailed] = useState(false);
+
+  // Sync state when props change
+  useEffect(() => {
+    setImgSrc(src);
+    setImgWebp(webpSrc || (src.endsWith('.jpg') ? src.replace(/\.jpg$/, '.webp') : undefined));
+    setIsFailed(false);
+  }, [src, webpSrc]);
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    if (!hasError && fallbackSrc && currentSrc !== fallbackSrc) {
-      setHasError(true);
-      setCurrentSrc(fallbackSrc);
-      setCurrentWebp(undefined);
+    if (!isFailed) {
+      setIsFailed(true);
+      setImgWebp(undefined);
+      setImgSrc(fallbackSrc);
     }
     if (onError) {
       onError(e);
@@ -43,29 +50,22 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   };
 
   return (
-    <div
-      className={`relative w-full h-full overflow-hidden bg-slate-900 ${containerClassName}`}
-      style={{
-        aspectRatio: width && height ? `${width} / ${height}` : undefined,
-      }}
-    >
-      <picture className="block w-full h-full">
-        {currentWebp && !hasError && (
-          <source srcSet={currentWebp} type="image/webp" />
-        )}
-        <img
-          src={currentSrc}
-          alt={alt}
-          width={width}
-          height={height}
-          loading={loading}
-          fetchPriority={fetchPriority}
-          decoding="async"
-          onError={handleError}
-          className={`w-full h-full object-cover ${className}`}
-          {...rest}
-        />
-      </picture>
-    </div>
+    <picture className="w-full h-full block">
+      {imgWebp && !isFailed && (
+        <source srcSet={imgWebp} type="image/webp" />
+      )}
+      <img
+        src={imgSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={loading}
+        fetchPriority={fetchPriority}
+        decoding="async"
+        onError={handleError}
+        className={`w-full h-full object-cover ${className}`}
+        {...rest}
+      />
+    </picture>
   );
 };
