@@ -1,17 +1,17 @@
 import { Course } from '../types';
-import formationAutomatismePlcImg from '../assets/images/formation_automatisme_plc_1787222645308.webp';
-import formationIhmHmiImg from '../assets/images/formation_ihm_hmi_1787222659419.webp';
-import formationScadaImg from '../assets/images/formation_scada_1787222682156.webp';
-import formationReseauxImg from '../assets/images/formation_reseaux_1787222696142.webp';
-import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.webp';
-import formationVariateursImg from '../assets/images/formation_variateurs_1787222722911.webp';
-import formationPhotovoltaiqueImg from '../assets/images/formation_photovoltaique_1787222737791.webp';
-import formationElectriciteImg from '../assets/images/formation_electricite_1787222750646.webp';
-import formationEnergieIsoImg from '../assets/images/formation_energie_iso_1787222764313.webp';
-import formationMaintenanceImg from '../assets/images/formation_maintenance_1787222778084.webp';
-import formationElectroniqueImg from '../assets/images/formation_electronique_1787222793081.webp';
-import formationHabilitationImg from '../assets/images/formation_habilitation_1787222808597.webp';
-import formationQhseImg from '../assets/images/formation_qhse_1787222827469.webp';
+import formationAutomatismePlcImg from '../assets/images/formation_automatisme_plc_1787222645308.jpg';
+import formationIhmHmiImg from '../assets/images/formation_ihm_hmi_1787222659419.jpg';
+import formationScadaImg from '../assets/images/formation_scada_1787222682156.jpg';
+import formationReseauxImg from '../assets/images/formation_reseaux_1787222696142.jpg';
+import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.jpg';
+import formationVariateursImg from '../assets/images/formation_variateurs_1787222722911.jpg';
+import formationPhotovoltaiqueImg from '../assets/images/formation_photovoltaique_1787222737791.jpg';
+import formationElectriciteImg from '../assets/images/formation_electricite_1787222750646.jpg';
+import formationEnergieIsoImg from '../assets/images/formation_energie_iso_1787222764313.jpg';
+import formationMaintenanceImg from '../assets/images/formation_maintenance_1787222778084.jpg';
+import formationElectroniqueImg from '../assets/images/formation_electronique_1787222793081.jpg';
+import formationHabilitationImg from '../assets/images/formation_habilitation_1787222808597.jpg';
+import formationQhseImg from '../assets/images/formation_qhse_1787222827469.jpg';
 
 export const COURSES_DATA: Course[] = [
   // 1 — Formation Automatisme Industriel & Automates Programmables

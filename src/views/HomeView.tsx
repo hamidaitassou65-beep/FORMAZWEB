@@ -6,9 +6,9 @@ import { TECHNICAL_SERVICES } from '../data/services';
 import { INDUSTRIAL_TECHNOLOGIES } from '../data/technologies';
 import { ArrowRight, CheckCircle2, GraduationCap, Wrench, ShieldCheck, Zap, Cpu, Settings, Award, Users, Activity, FileText, Bot } from 'lucide-react';
 import { Um6pLogo, OcpLogo, AzuraLogo, DislogLogo, LicorneLogo } from '../components/PartnerLogos';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.webp';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.webp';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.webp';
+import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
+import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
+import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
 
 interface Props {
   companyInfo: CompanyInfo;

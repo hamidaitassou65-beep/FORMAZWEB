@@ -2,10 +2,10 @@ import React from 'react';
 import { TECHNICAL_SERVICES } from '../data/services';
 import { TechService } from '../types';
 import { Wrench, Cpu, Bot, Settings, CheckCircle2, ArrowRight, ShieldCheck, Zap, PhoneCall } from 'lucide-react';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.webp';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.webp';
-import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.webp';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.webp';
+import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
+import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
+import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.jpg';
+import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
 
 interface Props {
   onRequestService: (serviceTitle: string) => void;
