@@ -11,7 +11,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/industrial-automation.webp',
     imageWebp: '/images/formations/industrial-automation.webp',
     imageJpg: '/images/formations/industrial-automation.webp',
-    imageAlt: 'Formation en automatisme industriel et programmation d\'automates PLC',
+    imageAlt: 'Formation pratique en automatisme industriel et programmation d\'automates PLC Siemens et Schneider',
     seoFileName: 'formation-automatisme-industriel-automates-plc.webp',
     objectives: [
       'Comprendre l’architecture matérielle et logicielle des automates programmables industriels (API / PLC).',
@@ -69,7 +69,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/hmi-training.webp',
     imageWebp: '/images/formations/hmi-training.webp',
     imageJpg: '/images/formations/hmi-training.webp',
-    imageAlt: 'Formation en programmation des interfaces homme-machine IHM HMI',
+    imageAlt: 'Formation en développement et programmation d\'interfaces homme-machine tactiles IHM HMI',
     seoFileName: 'formation-ihm-hmi-interface-homme-machine.webp',
     objectives: [
       'Concevoir des interfaces tactiles ergonomiques et intuitives pour pupitres opérateurs industriels.',
@@ -126,7 +126,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/scada-training.webp',
     imageWebp: '/images/formations/scada-training.webp',
     imageJpg: '/images/formations/scada-training.webp',
-    imageAlt: 'Formation en supervision industrielle SCADA WinCC InTouch et PC Vue',
+    imageAlt: 'Formation en supervision industrielle SCADA, synoptiques temps réel et acquisition de données',
     seoFileName: 'formation-supervision-industrielle-scada.webp',
     objectives: [
       'Maîtriser l’architecture client/serveur des systèmes de supervision SCADA industriels.',
@@ -183,7 +183,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/industrial-networks.webp',
     imageWebp: '/images/formations/industrial-networks.webp',
     imageJpg: '/images/formations/industrial-networks.webp',
-    imageAlt: 'Formation en réseaux industriels PROFINET Ethernet IP et Modbus TCP',
+    imageAlt: 'Formation aux réseaux et bus de terrain industriels PROFINET, Ethernet/IP et Modbus TCP',
     seoFileName: 'formation-reseaux-communication-industriels-profinet-modbus.webp',
     objectives: [
       'Comprendre le fonctionnement et les spécificités des protocoles Ethernet industriels temps réel.',
@@ -240,7 +240,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/automated-system-diagnostics.webp',
     imageWebp: '/images/formations/automated-system-diagnostics.webp',
     imageJpg: '/images/formations/automated-system-diagnostics.webp',
-    imageAlt: 'Formation au diagnostic des systèmes automatisés en production',
+    imageAlt: 'Formation au diagnostic, dépannage et recherche de pannes sur systèmes automatisés de production',
     seoFileName: 'formation-diagnostic-systemes-automatises-production.webp',
     objectives: [
       'Appliquer une méthodologie rigoureuse et structurée de recherche de pannes industrielles.',
@@ -297,7 +297,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/variable-speed-drives.webp',
     imageWebp: '/images/formations/variable-speed-drives.webp',
     imageJpg: '/images/formations/variable-speed-drives.webp',
-    imageAlt: 'Formation en paramétrage et maintenance des variateurs de vitesse industriels',
+    imageAlt: 'Formation au paramétrage, contrôle moteur et maintenance des variateurs de vitesse industriels',
     seoFileName: 'formation-variateurs-vitesse-industriels-maintenance.webp',
     objectives: [
       'Comprendre les principes physiques de la variation de fréquence sur moteurs asynchrones et synchrones.',
@@ -355,7 +355,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/photovoltaic-systems.webp',
     imageWebp: '/images/formations/photovoltaic-systems.webp',
     imageJpg: '/images/formations/photovoltaic-systems.webp',
-    imageAlt: 'Formation au dimensionnement et à l\'installation des systèmes photovoltaïques',
+    imageAlt: 'Formation à l\'étude, au dimensionnement et à l\'installation de centrales solaires photovoltaïques',
     seoFileName: 'formation-dimensionnement-installation-photovoltaique.webp',
     objectives: [
       'Comprendre le principe de conversion photovoltaïque et les technologies de modules solaires.',
@@ -412,7 +412,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/industrial-electricity.webp',
     imageWebp: '/images/formations/industrial-electricity.webp',
     imageJpg: '/images/formations/industrial-electricity.webp',
-    imageAlt: 'Formation en électricité industrielle et installations électriques basse tension',
+    imageAlt: 'Formation en électricité industrielle basse tension, armoires électriques et normes de câblage',
     seoFileName: 'formation-electricite-industrielle-installations-bt.webp',
     objectives: [
       'Lire et interpréter couramment des schémas électriques industriels complexes (normes CEI / NF C 15-100).',
@@ -469,7 +469,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/energy-efficiency-iso50001.webp',
     imageWebp: '/images/formations/energy-efficiency-iso50001.webp',
     imageJpg: '/images/formations/energy-efficiency-iso50001.webp',
-    imageAlt: 'Formation en efficacité énergétique industrielle et norme ISO 50001',
+    imageAlt: 'Formation en efficacité énergétique industrielle, audit et mise en œuvre du management ISO 50001',
     seoFileName: 'formation-efficacite-energetique-industrie-iso50001.webp',
     objectives: [
       'Comprendre les exigences et la méthodologie du système de management de l’énergie selon la norme ISO 50001.',
@@ -526,7 +526,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/industrial-maintenance.webp',
     imageWebp: '/images/formations/industrial-maintenance.webp',
     imageJpg: '/images/formations/industrial-maintenance.webp',
-    imageAlt: 'Formation pratique en maintenance et diagnostic des équipements industriels',
+    imageAlt: 'Formation pratique en maintenance industrielle préventive, corrective et GMAO',
     seoFileName: 'formation-maintenance-industrielle-diagnostic.webp',
     objectives: [
       'Maîtriser les différentes stratégies de maintenance : préventive systématique, conditionnelle, prédictive et corrective.',
@@ -583,7 +583,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/industrial-electronics.webp',
     imageWebp: '/images/formations/industrial-electronics.webp',
     imageJpg: '/images/formations/industrial-electronics.webp',
-    imageAlt: 'Formation au diagnostic et contrôle des cartes électroniques industrielles',
+    imageAlt: 'Formation au diagnostic, contrôle et réparation des cartes électroniques industrielles',
     seoFileName: 'formation-diagnostic-cartes-electroniques-industrielles.webp',
     objectives: [
       'Identifier la fonction et le principe des composants électroniques discrets et CMS (diodes, transistors, MOSFET, IGBT, optocoupleurs).',
@@ -640,7 +640,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/electrical-safety.webp',
     imageWebp: '/images/formations/electrical-safety.webp',
     imageJpg: '/images/formations/electrical-safety.webp',
-    imageAlt: 'Formation en habilitation et sécurité électrique en environnement professionnel',
+    imageAlt: 'Formation et certification en habilitation électrique basse et haute tension selon la norme NF C 18-510',
     seoFileName: 'formation-habilitation-electrique-securite.webp',
     objectives: [
       'Identifier les dangers du courant électrique, les effets physiologiques de l’électrisation et les risques d’arc flash.',
@@ -699,7 +699,7 @@ export const COURSES_DATA: Course[] = [
     image: '/images/formations/qhse.webp',
     imageWebp: '/images/formations/qhse.webp',
     imageJpg: '/images/formations/qhse.webp',
-    imageAlt: 'Formation QHSE en qualité hygiène sécurité et environnement industriel',
+    imageAlt: 'Formation en management QHSE, prévention des risques et sécurité industrielle au travail',
     seoFileName: 'formation-qhse-qualite-hygiene-securite-environnement.webp',
     objectives: [
       'Comprendre les enjeux transversaux d’un système intégré Qualité, Hygiène, Sécurité et Environnement (QHSE).',

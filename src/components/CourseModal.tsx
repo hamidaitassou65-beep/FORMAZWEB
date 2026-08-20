@@ -38,6 +38,27 @@ export const CourseModal: React.FC<Props> = ({ course, onClose, onRequestCourse 
 
         {/* Body scrollable content */}
         <div className="p-6 overflow-y-auto space-y-6 text-slate-800 text-sm">
+          {/* Course Banner Image */}
+          {course.image && (
+            <div className="relative h-48 sm:h-56 w-full rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
+              <img
+                src={course.image}
+                alt={course.imageAlt || course.title}
+                width={800}
+                height={450}
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-4 right-4 pointer-events-none">
+                <span className="text-xs text-slate-200 font-medium line-clamp-1">
+                  {course.imageAlt}
+                </span>
+              </div>
+            </div>
+          )}
+
           {/* Quick Summary Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 bg-slate-50 border border-slate-200 rounded-xl">
             <div className="flex items-start gap-2.5">
