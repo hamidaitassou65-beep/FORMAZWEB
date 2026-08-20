@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   webpSrc?: string;
+  srcSetWebp?: string;
+  srcSetJpg?: string;
+  sizes?: string;
   alt: string;
   width: number;
   height: number;
@@ -16,6 +19,9 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
 export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   src,
   webpSrc,
+  srcSetWebp,
+  srcSetJpg,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
   alt,
   width,
   height,
@@ -49,11 +55,17 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
       {/* Modern Picture Element with WebP source + Fallback */}
       <picture>
-        {inferredWebp && !hasError && (
-          <source srcSet={inferredWebp} type="image/webp" />
+        {(srcSetWebp || inferredWebp) && !hasError && (
+          <source
+            srcSet={srcSetWebp || inferredWebp}
+            sizes={sizes}
+            type="image/webp"
+          />
         )}
         <img
           src={hasError && fallbackSrc ? fallbackSrc : src}
+          srcSet={!hasError ? srcSetJpg : undefined}
+          sizes={sizes}
           alt={alt}
           width={width}
           height={height}
