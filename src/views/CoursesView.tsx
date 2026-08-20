@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Course } from '../types';
 import { COURSES_DATA } from '../data/courses';
 import { Search, Clock, BookOpen, ArrowRight, Layers, SlidersHorizontal, Award } from 'lucide-react';
+import { OptimizedImage } from '../components/OptimizedImage';
 
 interface Props {
   onSelectCourse: (course: Course) => void;
@@ -131,19 +132,20 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
               <div>
                 {/* Course Card Top Image Header with Unique Image & Alt */}
                 <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
-                  <img
-                    src={course.image}
+                  <OptimizedImage
+                    src={course.imageJpg || course.image}
+                    webpSrc={course.imageWebp || course.image}
                     alt={course.imageAlt}
                     loading={index < 3 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    width={640}
-                    height={360}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    width={800}
+                    height={450}
+                    className="group-hover:scale-105 transition-transform duration-500 opacity-90"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent pointer-events-none" />
                   
                   {/* Visual Category Badge and Level Pill */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
                     <span className="px-2.5 py-1 bg-orange-500 text-white rounded-md text-[10.5px] font-bold tracking-wide uppercase shadow-xs">
                       {course.categoryLabel}
                     </span>

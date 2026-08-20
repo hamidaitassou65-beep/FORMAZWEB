@@ -6,9 +6,13 @@ import { TECHNICAL_SERVICES } from '../data/services';
 import { INDUSTRIAL_TECHNOLOGIES } from '../data/technologies';
 import { ArrowRight, CheckCircle2, GraduationCap, Wrench, ShieldCheck, Zap, Cpu, Settings, Award, Users, Activity, FileText, Bot } from 'lucide-react';
 import { Um6pLogo, OcpLogo, AzuraLogo, DislogLogo, LicorneLogo } from '../components/PartnerLogos';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
+import { OptimizedImage } from '../components/OptimizedImage';
+import heroBannerWebp from '../assets/images/hero-automatisme-industrie.webp';
+import heroBannerJpg from '../assets/images/hero-automatisme-industrie.jpg';
+import industrialTrainingWebp from '../assets/images/formation-pratique-banc.webp';
+import industrialTrainingJpg from '../assets/images/formation-pratique-banc.jpg';
+import electronicRepairWebp from '../assets/images/reparation-carte-electronique.webp';
+import electronicRepairJpg from '../assets/images/reparation-carte-electronique.jpg';
 
 interface Props {
   companyInfo: CompanyInfo;
@@ -86,19 +90,20 @@ export const HomeView: React.FC<Props> = ({
             {/* Right Column Image Graphic */}
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl group">
-                <img
-                  src={heroBannerImg}
+                <OptimizedImage
+                  src={heroBannerJpg}
+                  webpSrc={heroBannerWebp}
                   alt="Armoire d'automatisme industriel et variateurs de vitesse pour le contrôle d'équipements"
                   loading="eager"
-                  decoding="async"
-                  width={1280}
-                  height={720}
+                  fetchPriority="high"
+                  width={1200}
+                  height={675}
                   className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-103 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/20 to-transparent pointer-events-none" />
 
                 {/* Floating Overlay Badge */}
-                <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#1a365d]/95 backdrop-blur-md rounded-xl border border-slate-600/60 text-xs text-slate-200 space-y-1">
+                <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#1a365d]/95 backdrop-blur-md rounded-xl border border-slate-600/60 text-xs text-slate-200 space-y-1 pointer-events-none">
                   <div className="font-bold text-white flex items-center gap-2">
                     <Activity className="w-4 h-4 text-orange-400 animate-pulse" />
                     <span>Automatisme Industriel &amp; Maintenance au Maroc</span>
@@ -128,22 +133,23 @@ export const HomeView: React.FC<Props> = ({
           {/* Bloc 1 — Formations industrielles */}
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-orange-300 transition-all flex flex-col justify-between group overflow-hidden">
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
-              <img
-                src={industrialTrainingImg}
+              <OptimizedImage
+                src={industrialTrainingJpg}
+                webpSrc={industrialTrainingWebp}
                 alt="Formation pratique en automatisme industriel sur automate programmable"
                 loading="lazy"
-                decoding="async"
+                fetchPriority="auto"
                 width={800}
                 height={450}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
-              <div className="absolute top-4 left-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent pointer-events-none" />
+              <div className="absolute top-4 left-4 pointer-events-none">
                 <span className="px-3 py-1 bg-orange-500 text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm">
                   Pôle 01 — Formation Industrielle
                 </span>
               </div>
-              <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2">
+              <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2 pointer-events-none">
                 <div className="w-8 h-8 rounded-lg bg-orange-500/90 text-white flex items-center justify-center font-bold shrink-0">
                   <GraduationCap className="w-4 h-4" />
                 </div>
@@ -187,22 +193,23 @@ export const HomeView: React.FC<Props> = ({
           {/* Bloc 2 — Services techniques */}
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-[#1a365d] transition-all flex flex-col justify-between group overflow-hidden">
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
-              <img
-                src={electronicRepairImg}
+              <OptimizedImage
+                src={electronicRepairJpg}
+                webpSrc={electronicRepairWebp}
                 alt="Diagnostic et réparation d'une carte électronique industrielle"
                 loading="lazy"
-                decoding="async"
+                fetchPriority="auto"
                 width={800}
                 height={450}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
-              <div className="absolute top-4 left-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent pointer-events-none" />
+              <div className="absolute top-4 left-4 pointer-events-none">
                 <span className="px-3 py-1 bg-[#1a365d] text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm border border-slate-500/30">
                   Pôle 02 — Services Industriels &amp; Maintenance
                 </span>
               </div>
-              <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2">
+              <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-2 pointer-events-none">
                 <div className="w-8 h-8 rounded-lg bg-[#1a365d]/90 text-white flex items-center justify-center font-bold shrink-0 border border-slate-500/30">
                   <Wrench className="w-4 h-4" />
                 </div>

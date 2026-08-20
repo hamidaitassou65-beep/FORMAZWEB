@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { CompanyInfo, Course, RequestType } from './types';
 import { getStoredCompanyInfo } from './data/company';
@@ -11,11 +11,29 @@ import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { PAGE_SEO_DATA, TOPIC_SEO_DATA, updateDocumentMetadata } from './utils/seo';
 
 import { HomeView } from './views/HomeView';
-import { CoursesView } from './views/CoursesView';
-import { ServicesView } from './views/ServicesView';
-import { ProjectsView } from './views/ProjectsView';
-import { AboutView } from './views/AboutView';
-import { ContactView } from './views/ContactView';
+
+// Code splitting: Lazy load secondary views to reduce initial bundle size and speed up FCP/LCP
+const CoursesView = lazy(() => import('./views/CoursesView').then(m => ({ default: m.CoursesView })));
+const ServicesView = lazy(() => import('./views/ServicesView').then(m => ({ default: m.ServicesView })));
+const ProjectsView = lazy(() => import('./views/ProjectsView').then(m => ({ default: m.ProjectsView })));
+const AboutView = lazy(() => import('./views/AboutView').then(m => ({ default: m.AboutView })));
+const ContactView = lazy(() => import('./views/ContactView').then(m => ({ default: m.ContactView })));
+
+/**
+ * Lightweight Loading Skeleton for Suspense Route Transitions
+ */
+function RouteSuspenseFallback() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 animate-pulse space-y-8" aria-busy="true">
+      <div className="h-40 bg-slate-200 rounded-3xl w-full" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="h-72 bg-slate-200 rounded-2xl" />
+        <div className="h-72 bg-slate-200 rounded-2xl" />
+        <div className="h-72 bg-slate-200 rounded-2xl" />
+      </div>
+    </div>
+  );
+}
 
 /**
  * Scroll to top automatically when route pathname changes
@@ -104,71 +122,73 @@ function MainLayout() {
 
       {/* Main Content Area with Clean Routes */}
       <main className="flex-grow">
-        <Routes>
-          {/* Main Clean Routes */}
-          <Route
-            path="/"
-            element={
-              <HomeView
-                companyInfo={companyInfo}
-                onOpenQuoteModal={handleOpenQuoteModal}
-              />
-            }
-          />
-          <Route
-            path="/formations"
-            element={
-              <CoursesView
-                onSelectCourse={(course) => setCourseModalData(course)}
-                onRequestCourse={(title) => handleOpenQuoteModal('Formation', title)}
-              />
-            }
-          />
-          <Route
-            path="/services"
-            element={
-              <ServicesView
-                onRequestService={(title) => handleOpenQuoteModal('Diagnostic ou dépannage', title)}
-              />
-            }
-          />
-          <Route
-            path="/realisations"
-            element={
-              <ProjectsView
-                onOpenQuoteModal={handleOpenQuoteModal}
-              />
-            }
-          />
-          <Route
-            path="/a-propos"
-            element={
-              <AboutView
-                companyInfo={companyInfo}
-                onOpenSettings={() => setIsSettingsOpen(true)}
-                onOpenQuoteModal={() => handleOpenQuoteModal('Demande de devis')}
-              />
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <ContactView
-                companyInfo={companyInfo}
-                initialType={quotePrefilledType}
-                initialSubject={quotePrefilledSubject}
-              />
-            }
-          />
+        <Suspense fallback={<RouteSuspenseFallback />}>
+          <Routes>
+            {/* Main Clean Routes */}
+            <Route
+              path="/"
+              element={
+                <HomeView
+                  companyInfo={companyInfo}
+                  onOpenQuoteModal={handleOpenQuoteModal}
+                />
+              }
+            />
+            <Route
+              path="/formations"
+              element={
+                <CoursesView
+                  onSelectCourse={(course) => setCourseModalData(course)}
+                  onRequestCourse={(title) => handleOpenQuoteModal('Formation', title)}
+                />
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <ServicesView
+                  onRequestService={(title) => handleOpenQuoteModal('Diagnostic ou dépannage', title)}
+                />
+              }
+            />
+            <Route
+              path="/realisations"
+              element={
+                <ProjectsView
+                  onOpenQuoteModal={handleOpenQuoteModal}
+                />
+              }
+            />
+            <Route
+              path="/a-propos"
+              element={
+                <AboutView
+                  companyInfo={companyInfo}
+                  onOpenSettings={() => setIsSettingsOpen(true)}
+                  onOpenQuoteModal={() => handleOpenQuoteModal('Demande de devis')}
+                />
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <ContactView
+                  companyInfo={companyInfo}
+                  initialType={quotePrefilledType}
+                  initialSubject={quotePrefilledSubject}
+                />
+              }
+            />
 
-          {/* Legacy route redirects to French clean routes */}
-          <Route path="/projects" element={<Navigate to="/realisations" replace />} />
-          <Route path="/courses" element={<Navigate to="/formations" replace />} />
-          <Route path="/about" element={<Navigate to="/a-propos" replace />} />
+            {/* Legacy route redirects to French clean routes */}
+            <Route path="/projects" element={<Navigate to="/realisations" replace />} />
+            <Route path="/courses" element={<Navigate to="/formations" replace />} />
+            <Route path="/about" element={<Navigate to="/a-propos" replace />} />
 
-          {/* 404 Wildcard redirect to Home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+            {/* 404 Wildcard redirect to Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </main>
 
       {/* Footer */}

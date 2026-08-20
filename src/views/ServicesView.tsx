@@ -2,13 +2,32 @@ import React from 'react';
 import { TECHNICAL_SERVICES } from '../data/services';
 import { TechService } from '../types';
 import { Wrench, Cpu, Bot, Settings, CheckCircle2, ArrowRight, ShieldCheck, Zap, PhoneCall } from 'lucide-react';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
-import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.jpg';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
+import { OptimizedImage } from '../components/OptimizedImage';
+import electronicRepairWebp from '../assets/images/reparation-carte-electronique.webp';
+import electronicRepairJpg from '../assets/images/reparation-carte-electronique.jpg';
+import industrialTrainingWebp from '../assets/images/formation-pratique-banc.webp';
+import industrialTrainingJpg from '../assets/images/formation-pratique-banc.jpg';
+import formationDiagnosticWebp from '../assets/images/formation-diagnostic-systemes.webp';
+import formationDiagnosticJpg from '../assets/images/formation-diagnostic-systemes.jpg';
+import heroBannerWebp from '../assets/images/hero-automatisme-industrie.webp';
+import heroBannerJpg from '../assets/images/hero-automatisme-industrie.jpg';
 
 interface Props {
   onRequestService: (serviceTitle: string) => void;
+}
+
+function getServiceImages(serviceId: string) {
+  switch (serviceId) {
+    case 'automatisme':
+      return { webp: industrialTrainingWebp, jpg: industrialTrainingJpg };
+    case 'diagnostic':
+      return { webp: formationDiagnosticWebp, jpg: formationDiagnosticJpg };
+    case 'installation':
+      return { webp: heroBannerWebp, jpg: heroBannerJpg };
+    case 'reparation':
+    default:
+      return { webp: electronicRepairWebp, jpg: electronicRepairJpg };
+  }
 }
 
 function getServiceImageAlt(service: TechService): string {
@@ -46,14 +65,7 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
       {/* Services Grid Breakdown */}
       <div className="space-y-10">
         {TECHNICAL_SERVICES.map((service, index) => {
-          let serviceImage = electronicRepairImg;
-          if (service.id === 'automatisme') {
-            serviceImage = industrialTrainingImg;
-          } else if (service.id === 'diagnostic') {
-            serviceImage = formationDiagnosticImg;
-          } else if (service.id === 'installation') {
-            serviceImage = heroBannerImg;
-          }
+          const imgs = getServiceImages(service.id);
 
           return (
             <div
@@ -62,22 +74,23 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
             >
               {/* Service Header Banner with Image */}
               <div className="relative h-48 sm:h-60 w-full overflow-hidden bg-slate-900">
-                <img
-                  src={serviceImage}
+                <OptimizedImage
+                  src={imgs.jpg}
+                  webpSrc={imgs.webp}
                   alt={getServiceImageAlt(service)}
                   loading={index === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
                   width={800}
                   height={450}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/40 to-transparent" />
-                <div className="absolute top-4 left-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/40 to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-6 pointer-events-none">
                   <span className="px-3 py-1 bg-orange-500 text-white font-extrabold text-[11px] uppercase tracking-wider rounded-md shadow-sm">
                     Pôle Services Techniques au Maroc
                   </span>
                 </div>
-                <div className="absolute bottom-4 left-6 right-6 text-white flex items-center gap-3">
+                <div className="absolute bottom-4 left-6 right-6 text-white flex items-center gap-3 pointer-events-none">
                   <div className="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold shrink-0 shadow-lg">
                     {service.id === 'reparation' && <Cpu className="w-6 h-6" />}
                     {service.id === 'automatisme' && <Bot className="w-6 h-6" />}
