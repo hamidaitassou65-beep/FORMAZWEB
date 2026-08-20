@@ -6,6 +6,7 @@ import { TECHNICAL_SERVICES } from '../data/services';
 import { INDUSTRIAL_TECHNOLOGIES } from '../data/technologies';
 import { ArrowRight, CheckCircle2, GraduationCap, Wrench, ShieldCheck, Zap, Cpu, Settings, Award, Users, Activity, FileText, Bot } from 'lucide-react';
 import { Um6pLogo, OcpLogo, AzuraLogo, DislogLogo, LicorneLogo } from '../components/PartnerLogos';
+import { resolveImageUrl, handleImageError } from '../utils/imageUtils';
 
 interface Props {
   companyInfo: CompanyInfo;
@@ -84,11 +85,12 @@ export const HomeView: React.FC<Props> = ({
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl group">
                 <img
-                  src="/images/hero/hero-automatisme-industrie.webp"
+                  src={resolveImageUrl('/images/hero/hero-automatisme-industrie.webp')}
                   alt="Armoire d'automatisme industriel et variateurs de vitesse pour le contrôle d'équipements"
                   width={1200}
                   height={675}
                   decoding="async"
+                  onError={(e) => handleImageError(e)}
                   className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-103 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/20 to-transparent pointer-events-none" />
@@ -125,12 +127,13 @@ export const HomeView: React.FC<Props> = ({
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-orange-300 transition-all flex flex-col justify-between group overflow-hidden">
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
               <img
-                src="/images/formations/formation-pratique-banc.webp"
+                src={resolveImageUrl('/images/formations/formation-pratique-banc.webp')}
                 alt="Formation pratique en automatisme industriel sur automate programmable"
                 loading="lazy"
                 width={800}
                 height={450}
                 decoding="async"
+                onError={(e) => handleImageError(e)}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent pointer-events-none" />
@@ -184,12 +187,13 @@ export const HomeView: React.FC<Props> = ({
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-[#1a365d] transition-all flex flex-col justify-between group overflow-hidden">
             <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
               <img
-                src="/images/services/reparation-carte-electronique.webp"
+                src={resolveImageUrl('/images/services/reparation-carte-electronique.webp')}
                 alt="Diagnostic et réparation d'une carte électronique industrielle"
                 loading="lazy"
                 width={800}
                 height={450}
                 decoding="async"
+                onError={(e) => handleImageError(e)}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent pointer-events-none" />
