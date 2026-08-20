@@ -94,7 +94,6 @@ export const HomeView: React.FC<Props> = ({
                   width={1280}
                   height={720}
                   className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-103 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/20 to-transparent" />
 
@@ -137,7 +136,6 @@ export const HomeView: React.FC<Props> = ({
                 width={800}
                 height={450}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
               <div className="absolute top-4 left-4">
@@ -197,7 +195,6 @@ export const HomeView: React.FC<Props> = ({
                 width={800}
                 height={450}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/90 via-[#1a365d]/30 to-transparent" />
               <div className="absolute top-4 left-4">

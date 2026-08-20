@@ -70,7 +70,6 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
                   width={800}
                   height={450}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/40 to-transparent" />
                 <div className="absolute top-4 left-6">

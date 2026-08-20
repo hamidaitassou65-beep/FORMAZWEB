@@ -139,7 +139,6 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
                     width={640}
                     height={360}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent" />
                   
