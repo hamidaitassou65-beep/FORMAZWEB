@@ -4,7 +4,7 @@ import { CompanyInfo } from '../types';
 import { COURSES_DATA } from '../data/courses';
 import { TECHNICAL_SERVICES } from '../data/services';
 import { INDUSTRIAL_TECHNOLOGIES } from '../data/technologies';
-import { ArrowRight, CheckCircle2, GraduationCap, Wrench, ShieldCheck, Zap, Cpu, Settings, Award, Users, Activity, FileText } from 'lucide-react';
+import { ArrowRight, CheckCircle2, GraduationCap, Wrench, ShieldCheck, Zap, Cpu, Settings, Award, Users, Activity, FileText, Bot } from 'lucide-react';
 import { Um6pLogo, OcpLogo, AzuraLogo, DislogLogo, LicorneLogo } from '../components/PartnerLogos';
 import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
 import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
@@ -259,7 +259,7 @@ export const HomeView: React.FC<Props> = ({
           <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:border-orange-300 transition-all flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-lg bg-slate-100 text-[#1a365d] flex items-center justify-center font-bold">
-                <BotIcon className="w-5 h-5 text-[#1a365d]" />
+                <Bot className="w-5 h-5 text-[#1a365d]" />
               </div>
               <h3 className="font-bold text-[#1a365d] text-base">Automatisme industriel</h3>
               <p className="text-xs text-slate-500 leading-relaxed">

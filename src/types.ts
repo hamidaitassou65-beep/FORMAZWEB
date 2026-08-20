@@ -1,27 +1,45 @@
 export type PageRoute = '/' | '/formations' | '/services' | '/realisations' | '/a-propos' | '/contact';
 
-export type CategoryId = 'automatisme' | 'variateurs' | 'energie' | 'maintenance';
+export type CategoryId =
+  | 'all'
+  | 'automatisme'
+  | 'supervision'
+  | 'scada'
+  | 'reseaux'
+  | 'diagnostic'
+  | 'variateurs'
+  | 'solaire'
+  | 'electricite'
+  | 'efficacite'
+  | 'maintenance'
+  | 'electronique'
+  | 'securite'
+  | 'qhse';
 
 export interface Course {
   id: string;
   title: string;
-  category: CategoryId;
+  category: string;
   categoryLabel: string;
   shortDescription: string;
+  image: string;
+  imageAlt: string;
+  seoFileName?: string;
   objectives: string[];
   program: {
     moduleTitle: string;
     topics: string[];
   }[];
+  levelsInfo?: string;
   targetAudience: string;
   prerequisites: string;
-  duration: string; // e.g. "3 jours (21 heures)"
-  level: 'Initiation' | 'Intermédiaire' | 'Avancé' | 'Expert';
-  modalities: string; // "Présentiel, En entreprise (Sur site client) ou A distance"
-  practicalWork: string; // "70% Travaux Pratiques sur bancs de test industriels"
-  equipmentAndSoftware: string[]; // e.g. ["Siemens TIA Portal V18", "Banc API S7-1200", "Variateur Sinamics G120"]
-  certification: string; // "Attestation de fin de formation et d'évaluation des acquis"
-  price: string; // "Sur devis (Prise en charge OPCO possible)"
+  duration: string; // e.g. "Selon le niveau des participants et les besoins"
+  level: string; // e.g. "Initiation à Expert" / "Tous niveaux / Adaptable"
+  modalities: string; // "Présentiel, En entreprise (Sur site client) ou Classe virtuelle"
+  practicalWork: string; // "70% Travaux Pratiques sur bancs de test et équipements réels"
+  equipmentAndSoftware: string[];
+  certification: string; // "Attestation de fin de formation et d'évaluation des compétences"
+  price: string; // "Sur devis (Selon besoins et format)"
   featuredHome?: boolean;
 }
 

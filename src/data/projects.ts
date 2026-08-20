@@ -3,7 +3,7 @@ import { InterventionProject } from '../types';
 export const REALIZATIONS_DATA: InterventionProject[] = [
   {
     id: 'proj-01',
-    title: '[Projet Modèle] Diagnostic & Réparation de Variateur 160 kW',
+    title: 'Diagnostic & Réparation de Variateur 160 kW',
     equipmentType: 'Variateur de vitesse triphasé 160 kW (Pompage haute pression)',
     sector: 'Traitement de l’eau & Environnement',
     problem: 'Mise en sécurité intempestive avec alarme "Surtension Bus DC" et "Défaut IGBT" entraînant le blocage de la station de pompage principal.',
@@ -15,7 +15,7 @@ export const REALIZATIONS_DATA: InterventionProject[] = [
   },
   {
     id: 'proj-02',
-    title: '[Projet Modèle] Rétrofit Automate S7-300 vers S7-1500 & Écran Tactile',
+    title: 'Rétrofit Automate S7-300 vers S7-1500 & Écran Tactile',
     equipmentType: 'Ligne de conditionnement automatique (40 éléments d’E/S)',
     sector: 'Agroalimentaire',
     problem: 'Obsolescence de l’ancien API S7-300 avec indisponibilité des pièces de rechange et risque d’arrêt de production prolongé.',
@@ -27,7 +27,7 @@ export const REALIZATIONS_DATA: InterventionProject[] = [
   },
   {
     id: 'proj-03',
-    title: '[Projet Modèle] Réparation de Carte Électronique de Commande de Presse',
+    title: 'Réparation de Carte Électronique de Commande de Presse',
     equipmentType: 'Carte électronique multicouche intégrée à une presse hydraulique',
     sector: 'Plasturgie & Transformation des matériaux',
     problem: 'Absence d’affichage et blocage complet des commandes manuelles et automatiques de la presse.',
@@ -39,7 +39,7 @@ export const REALIZATIONS_DATA: InterventionProject[] = [
   },
   {
     id: 'proj-04',
-    title: '[Projet Modèle] Formation Intra-Entreprise & Paramétrage de Variateurs',
+    title: 'Formation Intra-Entreprise & Paramétrage de Variateurs',
     equipmentType: 'Parc de 15 variateurs de vitesse répartis sur convoyeurs industriels',
     sector: 'Logistique & Manutention',
     problem: 'Manque d’autonomie des techniciens internes lors des remplacements de variateurs en cas de panne sur poste de nuit.',

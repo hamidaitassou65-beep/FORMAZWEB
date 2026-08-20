@@ -1,67 +1,54 @@
 import React, { useState } from 'react';
-import { Course, CategoryId } from '../types';
+import { Course } from '../types';
 import { COURSES_DATA } from '../data/courses';
-import { Search, Filter, Clock, Award, BookOpen, ArrowRight, Layers, Cpu, ShieldCheck } from 'lucide-react';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
-import energyAuditImg from '../assets/images/energy_audit.jpg';
+import { Search, Clock, BookOpen, ArrowRight, Layers, SlidersHorizontal, Award } from 'lucide-react';
 
 interface Props {
   onSelectCourse: (course: Course) => void;
   onRequestCourse: (courseTitle: string) => void;
 }
 
-function getCourseImageAlt(course: Course): string {
-  switch (course.id) {
-    case 'auto-01':
-      return "Formation pratique en automatisme industriel sur automate programmable et banc d'essai";
-    case 'auto-02':
-      return "Programmation d'un automate Siemens avec TIA Portal sur banc d'entraînement";
-    case 'auto-03':
-      return "Configuration et test d'une interface tactile opérateur IHM pour automate industriel";
-    case 'auto-04':
-      return "Supervision industrielle et contrôle de procédé sur poste opérateur";
-    case 'auto-05':
-      return "Configuration et diagnostic de réseaux industriels PROFINET et Ethernet";
-    case 'auto-06':
-      return "Diagnostic d'un système d'automatisation industrielle sur banc de test";
-    case 'var-01':
-      return "Formation pratique sur un variateur de vitesse industriel et moteur électrique";
-    case 'var-02':
-      return "Variateur de vitesse utilisé pour l'optimisation énergétique d'une installation industrielle";
-    case 'ene-01':
-      return "Formation pratique en électricité industrielle sur armoire de commande";
-    case 'ene-02':
-      return "Panneaux solaires photovoltaïques et onduleurs pour formation technique";
-    case 'maint-01':
-      return "Intervention de maintenance et diagnostic sur une ligne de production automatisée";
-    case 'maint-02':
-      return "Contrôle et diagnostic d'une carte électronique industrielle au banc de test";
-    default:
-      return "Formation technique et manipulation d'équipements industriels";
-  }
-}
-
 export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }) => {
-  const [selectedCategory, setSelectedCategory] = useState<CategoryId | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories: { id: CategoryId | 'all'; label: string }[] = [
+  const filterCategories: { id: string; label: string }[] = [
     { id: 'all', label: 'Toutes les formations' },
-    { id: 'automatisme', label: 'Automatisme industriel' },
+    { id: 'automatisme', label: 'Automatisme & Supervision' },
+    { id: 'reseaux', label: 'Réseaux & Diagnostic' },
     { id: 'variateurs', label: 'Variateurs de vitesse' },
-    { id: 'energie', label: 'Énergie & Électrotechnique' },
-    { id: 'maintenance', label: 'Maintenance industrielle' },
+    { id: 'energie', label: 'Électricité & Énergie solaire' },
+    { id: 'maintenance', label: 'Maintenance & Électronique' },
+    { id: 'securite', label: 'Sécurité & QHSE' },
   ];
 
   const filteredCourses = COURSES_DATA.filter((course) => {
-    const matchesCategory = selectedCategory === 'all' || course.category === selectedCategory;
+    let matchesCategory = true;
+    if (selectedCategory === 'all') {
+      matchesCategory = true;
+    } else if (selectedCategory === 'automatisme') {
+      matchesCategory = ['automatisme', 'supervision', 'scada'].includes(course.category);
+    } else if (selectedCategory === 'reseaux') {
+      matchesCategory = ['reseaux', 'diagnostic'].includes(course.category);
+    } else if (selectedCategory === 'variateurs') {
+      matchesCategory = course.category === 'variateurs';
+    } else if (selectedCategory === 'energie') {
+      matchesCategory = ['solaire', 'electricite', 'efficacite'].includes(course.category);
+    } else if (selectedCategory === 'maintenance') {
+      matchesCategory = ['maintenance', 'electronique'].includes(course.category);
+    } else if (selectedCategory === 'securite') {
+      matchesCategory = ['securite', 'qhse'].includes(course.category);
+    } else {
+      matchesCategory = course.category === selectedCategory;
+    }
+
     const matchesSearch =
-      searchQuery === '' ||
+      searchQuery.trim() === '' ||
       course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.equipmentAndSoftware.some((eq) => eq.toLowerCase().includes(searchQuery.toLowerCase()));
+
     return matchesCategory && matchesSearch;
   });
 
@@ -71,13 +58,13 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
       <div className="bg-[#1a365d] text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-400/30 text-xs font-semibold">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>Formations Professionnelles en Automatisme, Maintenance &amp; Énergie au Maroc</span>
+          <span>Formations Professionnelles &amp; Techniques au Maroc</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
           Catalogue des Formations Industrielles
         </h1>
         <p className="text-slate-200 text-sm sm:text-base max-w-3xl leading-relaxed">
-          Découvrez nos programmes de formation professionnelle industrielle au Maroc : formation automatisme industriel, programmation PLC, Siemens TIA Portal, variateurs de vitesse, électricité industrielle, photovoltaïque et énergie solaire.
+          Découvrez nos programmes de formation professionnelle continue au Maroc : automatisme industriel, IHM, supervision SCADA, réseaux de communication, diagnostic de production, variateurs de vitesse, énergie solaire photovoltaïque, électricité industrielle BT, efficacité énergétique ISO 50001, maintenance industrielle, cartes électroniques, habilitation électrique et QHSE.
         </p>
       </div>
 
@@ -91,8 +78,8 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Rechercher une formation (ex: TIA Portal, Siemens, PLC, Variateur, Électricité, Solaire...)"
-              className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none"
+              placeholder="Rechercher une formation (ex: PLC, TIA Portal, HMI, SCADA, PROFINET, Variateur, Photovoltaïque, ISO 50001...)"
+              className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none placeholder:text-slate-400"
             />
           </div>
 
@@ -104,7 +91,7 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
 
         {/* Category Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
-          {categories.map((cat) => (
+          {filterCategories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
@@ -120,103 +107,118 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
         </div>
       </div>
 
-      {/* Course Grid */}
+      {/* Course Grid (13 distinct courses) */}
       {filteredCourses.length === 0 ? (
         <div className="text-center py-12 bg-white rounded-2xl border border-slate-200 p-8 space-y-3">
           <p className="text-slate-600 font-medium text-base">Aucune formation ne correspond à vos critères de recherche.</p>
-
           <button
             onClick={() => {
               setSelectedCategory('all');
               setSearchQuery('');
             }}
-            className="px-4 py-2 text-xs font-semibold text-orange-500 hover:bg-orange-50 rounded-lg"
+            className="px-4 py-2 text-xs font-semibold text-orange-500 hover:bg-orange-50 rounded-lg transition-colors"
           >
             Réinitialiser les filtres
           </button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.map((course) => {
-            let categoryImage = industrialTrainingImg;
-            if (course.category === 'variateurs') {
-              categoryImage = heroBannerImg;
-            } else if (course.category === 'energie') {
-              categoryImage = energyAuditImg;
-            } else if (course.category === 'maintenance') {
-              categoryImage = electronicRepairImg;
-            }
-
-            return (
-              <div
-                key={course.id}
-                className="bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-orange-300 transition-all flex flex-col justify-between overflow-hidden group"
-              >
-                <div>
-                  {/* Course Card Top Image Header */}
-                  <div className="relative h-36 w-full overflow-hidden bg-slate-900">
-                    <img
-                      src={categoryImage}
-                      alt={getCourseImageAlt(course)}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                      <span className="px-2.5 py-1 bg-orange-500 text-white rounded-md text-[11px] font-bold tracking-wide uppercase shadow-xs">
-                        {course.categoryLabel}
-                      </span>
-                      <span className="text-[11px] font-bold text-white bg-slate-900/80 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
-                        {course.level}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-base font-bold text-[#1a365d] leading-snug group-hover:text-orange-600 transition-colors line-clamp-2">
-                      {course.title}
-                    </h3>
-
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
-                      {course.shortDescription}
-                    </p>
-
-                    {/* Info Pills */}
-                    <div className="space-y-2 pt-3 border-t border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-start gap-2">
-                        <Clock className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
-                        <span>Durée : <strong className="text-[#1a365d]">{course.duration}</strong></span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Layers className="w-3.5 h-3.5 text-[#1a365d] shrink-0" />
-                        <span className="truncate">{course.modalities}</span>
-                      </div>
-                    </div>
+          {filteredCourses.map((course, index) => (
+            <article
+              key={course.id}
+              className="bg-white rounded-2xl border border-slate-200 shadow-xs hover:border-orange-300 transition-all flex flex-col justify-between overflow-hidden group"
+            >
+              <div>
+                {/* Course Card Top Image Header with Unique Image & Alt */}
+                <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
+                  <img
+                    src={course.image}
+                    alt={course.imageAlt}
+                    loading={index < 3 ? 'eager' : 'lazy'}
+                    width={640}
+                    height={360}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent" />
+                  
+                  {/* Visual Category Badge and Level Pill */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                    <span className="px-2.5 py-1 bg-orange-500 text-white rounded-md text-[10.5px] font-bold tracking-wide uppercase shadow-xs">
+                      {course.categoryLabel}
+                    </span>
+                    <span className="text-[11px] font-bold text-white bg-slate-900/80 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
+                      {course.level.includes('—') ? course.level.split('—')[0].trim() : course.level}
+                    </span>
                   </div>
                 </div>
 
-                {/* Action Footer */}
-                <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => onSelectCourse(course)}
-                    className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#1a365d] hover:bg-slate-200/60 rounded-lg transition-colors"
-                  >
-                    Détails &amp; Programme
-                  </button>
+                <div className="p-6 space-y-3">
+                  <h2 className="text-base font-bold text-[#1a365d] leading-snug group-hover:text-orange-600 transition-colors line-clamp-2">
+                    {course.title}
+                  </h2>
 
-                  <button
-                    onClick={() => onRequestCourse(course.title)}
-                    className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-lg shadow-xs transition-colors flex items-center gap-1.5 active:scale-95"
-                  >
-                    <span>Demander</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                    {course.shortDescription}
+                  </p>
+
+                  {/* Info Pills */}
+                  <div className="space-y-2 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                    <div className="flex items-start gap-2">
+                      <Clock className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
+                      <span>Durée : <strong className="text-[#1a365d]">{course.duration}</strong></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Layers className="w-3.5 h-3.5 text-[#1a365d] shrink-0" />
+                      <span className="truncate">{course.modalities}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Action Footer */}
+              <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-2">
+                <button
+                  onClick={() => onSelectCourse(course)}
+                  className="px-3 py-2 text-xs font-bold text-slate-700 hover:text-[#1a365d] hover:bg-slate-200/60 rounded-lg transition-colors"
+                >
+                  Détails &amp; Programme
+                </button>
+
+                <button
+                  onClick={() => onRequestCourse(course.title)}
+                  className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs rounded-lg shadow-xs transition-colors flex items-center gap-1.5 active:scale-95"
+                >
+                  <span>Demander</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </article>
+          ))}
         </div>
       )}
+
+      {/* Pedagogical Adaptation Note Banner */}
+      <div className="bg-gradient-to-r from-slate-50 to-orange-50/50 rounded-2xl border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-xs font-bold text-orange-600 uppercase tracking-wider">
+            <SlidersHorizontal className="w-4 h-4" />
+            <span>Niveau et adaptation pédagogique sur mesure</span>
+          </div>
+          <h3 className="text-lg font-bold text-[#1a365d]">Formations adaptées aux besoins spécifiques de votre entreprise</h3>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed">
+            Chaque module peut être dispensé aux niveaux initiation, intermédiaire, avancé ou expert. Les travaux pratiques, études de cas et matériels mis à disposition sont configurés en fonction du profil de vos équipes et de vos équipements industriels au Maroc.
+          </p>
+        </div>
+
+        <button
+          onClick={() => onRequestCourse('Demande de programme sur mesure')}
+          className="px-5 py-3 bg-[#1a365d] hover:bg-[#152c4d] text-white font-bold text-xs rounded-lg shadow-sm transition-colors shrink-0 flex items-center gap-2"
+        >
+          <span>Concevoir un programme sur mesure</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Course } from '../types';
-import { X, Clock, Award, ShieldAlert, Cpu, CheckCircle, ArrowRight, UserCheck, Layers, FileText } from 'lucide-react';
+import { X, Clock, Award, ShieldAlert, Cpu, CheckCircle, ArrowRight, UserCheck, Layers, FileText, Sliders } from 'lucide-react';
 
 interface Props {
   course: Course | null;
@@ -30,6 +30,7 @@ export const CourseModal: React.FC<Props> = ({ course, onClose, onRequestCourse 
           <button
             onClick={onClose}
             className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors shrink-0"
+            aria-label="Fermer la fenêtre"
           >
             <X className="w-5 h-5" />
           </button>
@@ -71,6 +72,16 @@ export const CourseModal: React.FC<Props> = ({ course, onClose, onRequestCourse 
             </h4>
             <p className="text-slate-700 leading-relaxed">{course.shortDescription}</p>
           </div>
+
+          {/* Niveau et adaptation pedagogique */}
+          {course.levelsInfo && (
+            <div className="p-4 bg-blue-50/70 border border-blue-200/80 rounded-xl space-y-1.5">
+              <h4 className="font-bold text-[#1a365d] text-xs flex items-center gap-2 uppercase tracking-wide">
+                <Sliders className="w-4 h-4 text-[#1a365d]" /> Niveau et adaptation pédagogique
+              </h4>
+              <p className="text-xs text-slate-700 leading-relaxed">{course.levelsInfo}</p>
+            </div>
+          )}
 
           {/* Objectives */}
           <div>

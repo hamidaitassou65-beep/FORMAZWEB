@@ -10,7 +10,7 @@ export const PAGE_SEO_DATA: Record<string, SeoMetadata> = {
   },
   '/formations': {
     title: 'Formations en Automatisme, Maintenance & Énergie | INDUSTRIELTECH',
-    description: 'Formations professionnelles en automatisme, Siemens TIA Portal, variateurs de vitesse, électricité industrielle, photovoltaïque et énergie au Maroc.',
+    description: 'Formations professionnelles en automatisme, automates PLC, IHM, SCADA, réseaux industriels, variateurs de vitesse, électricité BT et QHSE au Maroc.',
   },
   '/services': {
     title: 'Services en Automatisme & Maintenance Industrielle | INDUSTRIELTECH',
@@ -31,26 +31,58 @@ export const PAGE_SEO_DATA: Record<string, SeoMetadata> = {
 };
 
 export const TOPIC_SEO_DATA: Record<string, SeoMetadata> = {
-  // Formations spécifiques
-  'auto-01': {
-    title: 'Formation Automatisme Industriel au Maroc | INDUSTRIELTECH',
-    description: 'Formation pratique en automatisme industriel : automates programmables, PLC, Grafcet, capteurs, actionneurs, diagnostic et applications industrielles.',
+  // 13 Formations principales
+  'automatisme-plc': {
+    title: 'Formation Automatisme Industriel & PLC au Maroc | INDUSTRIELTECH',
+    description: 'Formation pratique couvrant les fondamentaux de l’automatisme industriel, la programmation des automates PLC/API, le Grafcet, les capteurs et le diagnostic.',
   },
-  'auto-02': {
-    title: 'Formation Siemens TIA Portal & Automates S7 au Maroc',
-    description: 'Formation Siemens TIA Portal pour programmer, superviser et diagnostiquer les automates S7-1200 et S7-1500 dans des applications industrielles.',
+  'ihm-hmi': {
+    title: 'Formation IHM & Écrans Opérateurs Industriels | INDUSTRIELTECH',
+    description: 'Conception, configuration et programmation d’interfaces opérateur IHM / HMI pour la visualisation, le pilotage et les alarmes d’installations.',
   },
-  'var-01': {
+  'supervision-scada': {
+    title: 'Formation Supervision Industrielle SCADA au Maroc | INDUSTRIELTECH',
+    description: 'Formation à la conception, au déploiement et à l’exploitation de systèmes SCADA (WinCC, InTouch, PcVue) pour la supervision industrielle.',
+  },
+  'reseaux-industriels': {
+    title: 'Formation Réseaux Industriels PROFINET & Modbus | INDUSTRIELTECH',
+    description: 'Formation à la configuration, au diagnostic et à la maintenance des réseaux industriels PROFINET, Ethernet/IP et Modbus TCP.',
+  },
+  'diagnostic-automatismes': {
+    title: 'Formation Diagnostic des Systèmes Automatisés | INDUSTRIELTECH',
+    description: 'Méthodologie pratique pour analyser rapidement les dysfonctionnements des automatismes et réduire les temps d’arrêt machine.',
+  },
+  'variateurs-vitesse': {
     title: 'Formation Variateurs de Vitesse Industriels | INDUSTRIELTECH',
-    description: 'Formation pratique sur les variateurs de vitesse : paramétrage, commande moteur, diagnostic, dépannage et maintenance industrielle.',
+    description: 'Formation pratique sur les variateurs de vitesse : paramétrage, commande moteur, diagnostic de pannes et maintenance industrielle.',
   },
-  'ene-01': {
-    title: 'Formation Électricité Industrielle au Maroc | INDUSTRIELTECH',
-    description: 'Formation en électricité industrielle : installations, moteurs, protections, schémas électriques, diagnostic et maintenance des équipements.',
+  'photovoltaique-solaire': {
+    title: 'Formation Systèmes Photovoltaïques & Énergie Solaire | INDUSTRIELTECH',
+    description: 'Formation couvrant l’étude, le dimensionnement, l’installation, le câblage et la maintenance des installations photovoltaïques.',
   },
-  'ene-02': {
-    title: 'Formation Photovoltaïque & Énergie Solaire au Maroc',
-    description: "Formation photovoltaïque sur le dimensionnement, l'installation, la maintenance, le diagnostic et l'optimisation des systèmes solaires PV.",
+  'electricite-industrielle': {
+    title: 'Formation Électricité Industrielle & Installations BT | INDUSTRIELTECH',
+    description: 'Formation pratique sur les installations électriques basse tension, les schémas électriques, les protections et la maintenance électrique.',
+  },
+  'efficacite-energetique-iso50001': {
+    title: 'Formation Efficacité Énergétique & ISO 50001 | INDUSTRIELTECH',
+    description: 'Comprendre le management de l’énergie, identifier les usages énergétiques significatifs et appliquer les principes de la norme ISO 50001.',
+  },
+  'maintenance-industrielle': {
+    title: 'Formation en Maintenance Industrielle au Maroc | INDUSTRIELTECH',
+    description: 'Développement des compétences en maintenance préventive, corrective et diagnostique des équipements industriels.',
+  },
+  'electronique-industrielle': {
+    title: 'Formation Diagnostic des Cartes Électroniques | INDUSTRIELTECH',
+    description: 'Formation pratique sur les méthodes de test, de mesure et de diagnostic des cartes électroniques industrielles au composant.',
+  },
+  'habilitation-electrique': {
+    title: 'Formation en Habilitation Électrique | INDUSTRIELTECH',
+    description: 'Formation aux règles de sécurité, risques électriques, procédures d’intervention et consignation sur installations électriques.',
+  },
+  'qhse': {
+    title: 'Formation en QHSE Qualité Sécurité Environnement | INDUSTRIELTECH',
+    description: 'Formation sur les fondamentaux de la qualité, de la santé-sécurité au travail et de la maîtrise des impacts environnementaux.',
   },
   // Services spécifiques
   'automatisme': {
