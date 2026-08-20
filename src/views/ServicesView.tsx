@@ -2,31 +2,22 @@ import React from 'react';
 import { TECHNICAL_SERVICES } from '../data/services';
 import { TechService } from '../types';
 import { Wrench, Cpu, Bot, Settings, CheckCircle2, ArrowRight, ShieldCheck, Zap, PhoneCall } from 'lucide-react';
-import { OptimizedImage } from '../components/OptimizedImage';
-import electronicRepairWebp from '../assets/images/reparation-carte-electronique.webp';
-import electronicRepairJpg from '../assets/images/reparation-carte-electronique.jpg';
-import industrialTrainingWebp from '../assets/images/formation-pratique-banc.webp';
-import industrialTrainingJpg from '../assets/images/formation-pratique-banc.jpg';
-import formationDiagnosticWebp from '../assets/images/formation-diagnostic-systemes.webp';
-import formationDiagnosticJpg from '../assets/images/formation-diagnostic-systemes.jpg';
-import heroBannerWebp from '../assets/images/hero-automatisme-industrie.webp';
-import heroBannerJpg from '../assets/images/hero-automatisme-industrie.jpg';
 
 interface Props {
   onRequestService: (serviceTitle: string) => void;
 }
 
-function getServiceImages(serviceId: string) {
+function getServiceImage(serviceId: string): string {
   switch (serviceId) {
     case 'automatisme':
-      return { webp: industrialTrainingWebp, jpg: industrialTrainingJpg };
+      return '/images/formations/formation-pratique-banc.webp';
     case 'diagnostic':
-      return { webp: formationDiagnosticWebp, jpg: formationDiagnosticJpg };
+      return '/images/services/formation-diagnostic-systemes.webp';
     case 'installation':
-      return { webp: heroBannerWebp, jpg: heroBannerJpg };
+      return '/images/hero/hero-automatisme-industrie.webp';
     case 'reparation':
     default:
-      return { webp: electronicRepairWebp, jpg: electronicRepairJpg };
+      return '/images/services/reparation-carte-electronique.webp';
   }
 }
 
@@ -65,7 +56,7 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
       {/* Services Grid Breakdown */}
       <div className="space-y-10">
         {TECHNICAL_SERVICES.map((service, index) => {
-          const imgs = getServiceImages(service.id);
+          const serviceImg = getServiceImage(service.id);
 
           return (
             <div
@@ -74,14 +65,13 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
             >
               {/* Service Header Banner with Image */}
               <div className="relative h-48 sm:h-60 w-full overflow-hidden bg-slate-900">
-                <OptimizedImage
-                  src={imgs.jpg}
-                  webpSrc={imgs.webp}
+                <img
+                  src={serviceImg}
                   alt={getServiceImageAlt(service)}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  loading={index === 0 ? undefined : 'lazy'}
                   width={800}
                   height={450}
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d] via-[#1a365d]/40 to-transparent pointer-events-none" />
