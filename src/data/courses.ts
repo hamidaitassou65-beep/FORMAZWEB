@@ -1,17 +1,17 @@
 import { Course } from '../types';
-import formationAutomatismePlcImg from '../assets/images/formation_automatisme_plc_1787222645308.jpg';
-import formationIhmHmiImg from '../assets/images/formation_ihm_hmi_1787222659419.jpg';
-import formationScadaImg from '../assets/images/formation_scada_1787222682156.jpg';
-import formationReseauxImg from '../assets/images/formation_reseaux_1787222696142.jpg';
-import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.jpg';
-import formationVariateursImg from '../assets/images/formation_variateurs_1787222722911.jpg';
-import formationPhotovoltaiqueImg from '../assets/images/formation_photovoltaique_1787222737791.jpg';
-import formationElectriciteImg from '../assets/images/formation_electricite_1787222750646.jpg';
-import formationEnergieIsoImg from '../assets/images/formation_energie_iso_1787222764313.jpg';
-import formationMaintenanceImg from '../assets/images/formation_maintenance_1787222778084.jpg';
-import formationElectroniqueImg from '../assets/images/formation_electronique_1787222793081.jpg';
-import formationHabilitationImg from '../assets/images/formation_habilitation_1787222808597.jpg';
-import formationQhseImg from '../assets/images/formation_qhse_1787222827469.jpg';
+import formationAutomatismePlcImg from '../assets/images/formation_automatisme_plc_1787222645308.webp';
+import formationIhmHmiImg from '../assets/images/formation_ihm_hmi_1787222659419.webp';
+import formationScadaImg from '../assets/images/formation_scada_1787222682156.webp';
+import formationReseauxImg from '../assets/images/formation_reseaux_1787222696142.webp';
+import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.webp';
+import formationVariateursImg from '../assets/images/formation_variateurs_1787222722911.webp';
+import formationPhotovoltaiqueImg from '../assets/images/formation_photovoltaique_1787222737791.webp';
+import formationElectriciteImg from '../assets/images/formation_electricite_1787222750646.webp';
+import formationEnergieIsoImg from '../assets/images/formation_energie_iso_1787222764313.webp';
+import formationMaintenanceImg from '../assets/images/formation_maintenance_1787222778084.webp';
+import formationElectroniqueImg from '../assets/images/formation_electronique_1787222793081.webp';
+import formationHabilitationImg from '../assets/images/formation_habilitation_1787222808597.webp';
+import formationQhseImg from '../assets/images/formation_qhse_1787222827469.webp';
 
 export const COURSES_DATA: Course[] = [
   // 1 — Formation Automatisme Industriel & Automates Programmables
@@ -722,14 +722,14 @@ export const COURSES_DATA: Course[] = [
       }
     ],
     targetAudience: 'Responsables QHSE, animateurs sécurité, managers de proximité, directeurs d’usine, membres du comité SST.',
-    prerequisites: 'Aucun prérequis spécifique ; ouvert à tous les professionnels de l’industrie.',
+    prerequisites: 'Sensibilité aux questions de sécurité et d’organisation industrielle.',
     duration: 'Selon le niveau des participants et les besoins',
-    level: 'Transversal & Entreprise — Adaptable',
-    modalities: 'Présentiel ou classe virtuelle interactive avec études de cas sectorielles.',
-    practicalWork: 'Élaboration d’une grille d’évaluation des risques, simulation d’audit sécurité terrain et analyse d’un incident industriel.',
-    equipmentAndSoftware: ['Matrices d’évaluation des risques professionnels', 'Checklists d’audit sécurité et modèles de plans de prévention'],
-    certification: 'Attestation de fin de formation professionnelle.',
-    price: 'Sur devis',
+    level: 'Sensibilisation & Management — Adaptable',
+    modalities: 'Présentiel en entreprise au Maroc ou classe virtuelle interactive.',
+    practicalWork: 'Études de cas réels : analyse d’incidents avec arbre des causes, rédaction de fiches de sécurité et réalisation d’une grille d’audit terrain.',
+    equipmentAndSoftware: ['Supports pédagogiques réglementaires', 'Fiches de contrôle SST et grilles d’audit ISO 45001 / ISO 14001'],
+    certification: 'Attestation de fin de formation professionnelle QHSE.',
+    price: 'Sur devis (Tarif groupe entreprise)',
     featuredHome: false
   }
 ];

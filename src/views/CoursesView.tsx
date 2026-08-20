@@ -135,6 +135,7 @@ export const CoursesView: React.FC<Props> = ({ onSelectCourse, onRequestCourse }
                     src={course.image}
                     alt={course.imageAlt}
                     loading={index < 3 ? 'eager' : 'lazy'}
+                    decoding="async"
                     width={640}
                     height={360}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"

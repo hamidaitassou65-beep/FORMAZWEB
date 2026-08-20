@@ -2,10 +2,10 @@ import React from 'react';
 import { TECHNICAL_SERVICES } from '../data/services';
 import { TechService } from '../types';
 import { Wrench, Cpu, Bot, Settings, CheckCircle2, ArrowRight, ShieldCheck, Zap, PhoneCall } from 'lucide-react';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
-import diagnosticServiceImg from '../assets/images/diagnostic_service.jpg';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
+import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.webp';
+import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.webp';
+import formationDiagnosticImg from '../assets/images/formation_diagnostic_1787222710100.webp';
+import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.webp';
 
 interface Props {
   onRequestService: (serviceTitle: string) => void;
@@ -45,12 +45,12 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
 
       {/* Services Grid Breakdown */}
       <div className="space-y-10">
-        {TECHNICAL_SERVICES.map((service) => {
+        {TECHNICAL_SERVICES.map((service, index) => {
           let serviceImage = electronicRepairImg;
           if (service.id === 'automatisme') {
             serviceImage = industrialTrainingImg;
           } else if (service.id === 'diagnostic') {
-            serviceImage = diagnosticServiceImg;
+            serviceImage = formationDiagnosticImg;
           } else if (service.id === 'installation') {
             serviceImage = heroBannerImg;
           }
@@ -65,6 +65,10 @@ export const ServicesView: React.FC<Props> = ({ onRequestService }) => {
                 <img
                   src={serviceImage}
                   alt={getServiceImageAlt(service)}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
                   referrerPolicy="no-referrer"
                 />

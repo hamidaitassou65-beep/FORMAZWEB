@@ -6,9 +6,9 @@ import { TECHNICAL_SERVICES } from '../data/services';
 import { INDUSTRIAL_TECHNOLOGIES } from '../data/technologies';
 import { ArrowRight, CheckCircle2, GraduationCap, Wrench, ShieldCheck, Zap, Cpu, Settings, Award, Users, Activity, FileText, Bot } from 'lucide-react';
 import { Um6pLogo, OcpLogo, AzuraLogo, DislogLogo, LicorneLogo } from '../components/PartnerLogos';
-import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.jpg';
-import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.jpg';
-import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.jpg';
+import heroBannerImg from '../assets/images/industrial_hero_banner_1786383779603.webp';
+import industrialTrainingImg from '../assets/images/industrial_training_1786383807230.webp';
+import electronicRepairImg from '../assets/images/electronic_repair_1786383793761.webp';
 
 interface Props {
   companyInfo: CompanyInfo;
@@ -89,6 +89,10 @@ export const HomeView: React.FC<Props> = ({
                 <img
                   src={heroBannerImg}
                   alt="Armoire d'automatisme industriel et variateurs de vitesse pour le contrôle d'équipements"
+                  loading="eager"
+                  decoding="async"
+                  width={1280}
+                  height={720}
                   className="w-full h-80 sm:h-96 object-cover transform group-hover:scale-103 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
@@ -128,6 +132,10 @@ export const HomeView: React.FC<Props> = ({
               <img
                 src={industrialTrainingImg}
                 alt="Formation pratique en automatisme industriel sur automate programmable"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={450}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 referrerPolicy="no-referrer"
               />
@@ -184,6 +192,10 @@ export const HomeView: React.FC<Props> = ({
               <img
                 src={electronicRepairImg}
                 alt="Diagnostic et réparation d'une carte électronique industrielle"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={450}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 referrerPolicy="no-referrer"
               />
